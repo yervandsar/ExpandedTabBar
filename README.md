@@ -7,7 +7,7 @@
 ![Swift 4.x](https://img.shields.io/badge/Swift-4.x-orange.svg)
 ![iOS 9.0+](https://img.shields.io/badge/iOS-9.0+-green.svg)
 
-![Preview](preview.gif)
+![Preview](more.gif)
 
 ## Requirements
 
