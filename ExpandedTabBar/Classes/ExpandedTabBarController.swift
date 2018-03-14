@@ -9,21 +9,21 @@
 import UIKit
 import SystemConfiguration
 
-let kMoreTabVCIdentifier = "_UIExpendedTabBarMore"
-let kMoreTabVCAtIndex = "_UIExpendedTabBarMoreAt"
-let kMoreStackAtIndex = "_UIExpendedTabBarMoreStackAt"
+let kMoreTabVCIdentifier = "_UIExpandedTabBarMore"
+let kMoreTabVCAtIndex = "_UIExpandedTabBarMoreAt"
+let kMoreStackAtIndex = "_UIExpandedTabBarMoreStackAt"
 
 @objc public protocol ExpandedTabBarControllerDelegate: class {
     func expandedTabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController, withItem tabBarItem: UITabBarItem?)
 }
 
-public class ExpandedTabBarController: UITabBarController {
+open class ExpandedTabBarController: UITabBarController {
 
     @IBInspectable
     public var moreTitle: String = "More"
 
     @IBInspectable
-    public var moreIcon: UIImage? = UIImage(named: "IC_EXPANDEDTabBAR_MORE")
+    public var moreIcon: UIImage? = UIImage(namedInCurrentBundle: "IC_EXPANDEDTabBAR_MORE")
 
     @IBInspectable
     public var moreSelectedIcon: UIImage?
@@ -37,7 +37,7 @@ public class ExpandedTabBarController: UITabBarController {
         }
     }
 
-    public weak var expendedDelegate: ExpandedTabBarControllerDelegate?
+    public weak var expandedDelegate: ExpandedTabBarControllerDelegate?
 
     private var containerBottomMargin: CGFloat = 15
     private var moreItemHeight: CGFloat = 35
@@ -57,7 +57,7 @@ public class ExpandedTabBarController: UITabBarController {
 
     private var parentViewWidthConstraint: NSLayoutConstraint?
     
-    override public func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+    override open func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
         super.viewWillTransition(to: size, with: coordinator)
         coordinator.animate(alongsideTransition: nil) { [weak self] _ in
             guard let strongSelf = self else { return }
@@ -65,7 +65,7 @@ public class ExpandedTabBarController: UITabBarController {
         }
     }
 
-    override public func viewWillAppear(_ animated: Bool) {
+    override open func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         delegate = self
         if let vcArray = viewControllers, !vcArray.isEmpty {
@@ -197,7 +197,7 @@ extension ExpandedTabBarController: UITabBarControllerDelegate {
         viewControllers?[i] = selectedVC
         self.selectedIndex = i
         hideMoreContainer()
-        expendedDelegate?.expandedTabBarController(self, didSelect: selectedVC, withItem: tabBarItem)
+        expandedDelegate?.expandedTabBarController(self, didSelect: selectedVC, withItem: tabBarItem)
     }
 }
 

@@ -25,6 +25,7 @@
 		C1BE85DE20590F7600B4411F /* setup2.png in Resources */ = {isa = PBXBuildFile; fileRef = C1BE85DD20590F7600B4411F /* setup2.png */; };
 		C1BE85E92059221300B4411F /* .swift-version in Resources */ = {isa = PBXBuildFile; fileRef = C1BE85E82059221300B4411F /* .swift-version */; };
 		C1BE85EF20592BA800B4411F /* more.gif in Resources */ = {isa = PBXBuildFile; fileRef = C1BE85EE20592BA800B4411F /* more.gif */; };
+		C1BE85F12059418E00B4411F /* UIImage+Bundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1BE85F02059418D00B4411F /* UIImage+Bundle.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +49,7 @@
 		C1BE85DD20590F7600B4411F /* setup2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = setup2.png; sourceTree = "<group>"; };
 		C1BE85E82059221300B4411F /* .swift-version */ = {isa = PBXFileReference; lastKnownFileType = text; path = ".swift-version"; sourceTree = "<group>"; };
 		C1BE85EE20592BA800B4411F /* more.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = more.gif; sourceTree = "<group>"; };
+		C1BE85F02059418D00B4411F /* UIImage+Bundle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Bundle.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +104,7 @@
 		C1BE85D22058F70C00B4411F /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				C1BE85F02059418D00B4411F /* UIImage+Bundle.swift */,
 				C13C0EF72052A5D5002E9350 /* ExpandedTabBarController.swift */,
 				C1B0B5EA205679EA005B6639 /* TriangleView.swift */,
 				C10A528A2057DF1A004A731B /* ExpandedTabBarViews.swift */,
@@ -204,6 +207,7 @@
 				C1B6CAB520529CF800E25547 /* AppDelegate.swift in Sources */,
 				C10A528B2057DF1A004A731B /* ExpandedTabBarViews.swift in Sources */,
 				C10A528D2057E7C7004A731B /* ExpandedTabBarDefaultOptions.swift in Sources */,
+				C1BE85F12059418E00B4411F /* UIImage+Bundle.swift in Sources */,
 				C1B0B5EB205679EA005B6639 /* TriangleView.swift in Sources */,
 				C13C0EF82052A5D5002E9350 /* ExpandedTabBarController.swift in Sources */,
 			);

@@ -84,7 +84,7 @@ class CustomViewController: ExpandedTabBarController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        expendedDelegate = self
+        expandedDelegate = self
         initOptions()
     }
 
