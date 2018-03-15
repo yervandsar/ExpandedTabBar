@@ -6,6 +6,7 @@
 ![Swift 3.x](https://img.shields.io/badge/Swift-3.x-blue.svg)
 ![Swift 4.x](https://img.shields.io/badge/Swift-4.x-orange.svg)
 ![iOS 9.0+](https://img.shields.io/badge/iOS-9.0+-green.svg)
+![Badge w/ Version](https://img.shields.io/cocoapods/v/ExpandedTabBar.svg)
 
 ![Preview](more.gif)
 
@@ -41,29 +42,31 @@ To customize view you should change options with `ExpandedTabBarOptions` and `Ex
     //MARK :- ExpandedTabBarOptions
 
     /// Background view options
-    backgroundColor: UIColor
-    backgroundAlpha: CGFloat
+    backgroundColor: UIColor // Default .black
+    backgroundAlpha: CGFloat // Default 0.4
 
     /// List's container options
-    containerBackgroundColor:
-    containerBackgroundAlpha:
-    containerCornerRadius: CGFloat?
-    containerBottomMargin: CGFloat?
-    shadow: ExpandedTabBarShadowOptions?
+    containerBackgroundColor: UIColor // Default .white
+    containerBackgroundAlpha: CGFloat // Default 1.0
+    containerCornerRadius: CGFloat // Default 5.0
+    containerBottomMargin: CGFloat // Default 15.0
+    containerItemsSpace: CGFloat // Default 8.0
+    shadow: ExpandedTabBarShadowOptions? // Default nil
 
     /// Item View Options
-    titleFont: UIFont
-    titleColor: UIColor
-    itemHeight: CGFloat
-    imageContentMode: UIViewContentMode
+    titleFont: UIFont // Default .systemFont(ofSize: 16)
+    titleColor: UIColor // Default .black
+    itemHeight: CGFloat // Default 35.0
+    imageContentMode: UIViewContentMode // Default .scaleAspectFit
+    spaceBetweenImageTitle: CGFloat // Default 8.0
 
 
     //MARK :- ExpandedTabBarShadowOptions
 
-    color: UIColor
-    offset: CGSize
-    opacity: Float
-    radius: CGFloat
+    color: UIColor // Default .black
+    offset: CGSize // Default .zero
+    opacity: Float // Default 0.5
+    radius: CGFloat // Default 5.0
 ```
 
 For tab selection action please implement  `ExpandedTabBarControllerDelegate`:
@@ -92,6 +95,8 @@ class CustomViewController: ExpandedTabBarController {
         var options = ExpandedTabBarOptions()
         options.backgroundAlpha = 0.3
         options.shadow = .default
+        options.containerItemsSpace = 15
+        options.spaceBetweenImageTitle = 15
         self.options = options
     }
 

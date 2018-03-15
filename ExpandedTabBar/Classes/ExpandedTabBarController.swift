@@ -238,7 +238,7 @@ private extension ExpandedTabBarController {
         scrollView.showsHorizontalScrollIndicator = false
         stackView.distribution = .fill
         stackView.axis = .vertical
-        stackView.spacing = 8
+        stackView.spacing = options.containerItemsSpace
         stackView.isLayoutMarginsRelativeArrangement = true
         stackView.layoutMargins = UIEdgeInsets(
             top: 15,
@@ -378,7 +378,7 @@ private extension ExpandedTabBarController {
 
     func addContainerViewConstraints(to bgView: UIView) {
         backgroundView.addSubview(parentContainerView)
-        let suggestedHeight = (moreItemHeight + 8) * CGFloat((moreViewControllers ?? []).count) + 30
+        let suggestedHeight = (moreItemHeight + options.containerItemsSpace) * CGFloat((moreViewControllers ?? []).count) + 30 - options.containerItemsSpace
         let containerHeight = suggestedHeight > ExpandedTabBarViews.calculateMoreContainerMaxSize().height ?
             ExpandedTabBarViews.calculateMoreContainerMaxSize().height : suggestedHeight
         parentContainerView.translatesAutoresizingMaskIntoConstraints = false

@@ -19,12 +19,14 @@ public struct ExpandedTabBarDefaultOptions {
     static let containerBackgroundAlpha: CGFloat = 1.0
     static let containerCornerRadius: CGFloat = 10
     static let containerBottomMargin: CGFloat = 15
+    static let containerItemsSpace: CGFloat = 8
 
     /// Item View Options
     static let titleFont: UIFont = .systemFont(ofSize: 16)
     static let titleColor: UIColor = .black
     static let itemHeight: CGFloat = 35.0
     static let imageContentMode: UIViewContentMode = .scaleAspectFit
+    static let spaceBetweenImageTitle: CGFloat = 8
 
 }
 

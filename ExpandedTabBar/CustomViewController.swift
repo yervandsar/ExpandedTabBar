@@ -20,6 +20,8 @@ class CustomViewController: ExpandedTabBarController {
         var options = ExpandedTabBarOptions()
         options.backgroundAlpha = 0.3
         options.shadow = .default
+        options.containerItemsSpace = 15 // Default 8.0
+        options.spaceBetweenImageTitle = 15 // Default 8.0
         self.options = options
     }
 

@@ -25,6 +25,7 @@ public struct ExpandedTabBarOptions {
     public var containerBackgroundAlpha: CGFloat = ExpandedTabBarDefaultOptions.containerBackgroundAlpha
     public var containerCornerRadius: CGFloat = ExpandedTabBarDefaultOptions.containerCornerRadius
     public var containerBottomMargin: CGFloat = ExpandedTabBarDefaultOptions.containerBottomMargin
+    public var containerItemsSpace: CGFloat = ExpandedTabBarDefaultOptions.containerItemsSpace
     public var shadow: ExpandedTabBarShadowOptions?
 
     /// Item View Options
@@ -32,6 +33,7 @@ public struct ExpandedTabBarOptions {
     public var titleColor: UIColor = ExpandedTabBarDefaultOptions.titleColor
     public var itemHeight: CGFloat = ExpandedTabBarDefaultOptions.itemHeight
     public var imageContentMode: UIViewContentMode = ExpandedTabBarDefaultOptions.imageContentMode
+    public var spaceBetweenImageTitle: CGFloat = ExpandedTabBarDefaultOptions.spaceBetweenImageTitle
 
 }
 

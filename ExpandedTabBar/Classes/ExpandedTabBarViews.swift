@@ -20,7 +20,7 @@ class ExpandedTabBarViews {
 
         let parentView = UIStackView()
         parentView.tag = index
-        parentView.spacing = 8
+        parentView.spacing = options.spaceBetweenImageTitle
         parentView.distribution = .fill
         parentView.accessibilityIdentifier = kMoreStackAtIndex + "\(index)"
 
@@ -67,8 +67,8 @@ class ExpandedTabBarViews {
 
         let label = UILabel()
         label.text = item.title
-        label.font = UIFont.systemFont(ofSize: 16)
-        label.textColor = UIColor.black
+        label.font = options.titleFont
+        label.textColor = options.titleColor
         label.textAlignment = .left
         parentView.addArrangedSubview(label)
         return parentView
