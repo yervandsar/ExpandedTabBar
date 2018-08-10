@@ -73,7 +73,7 @@ open class ExpandedTabBarController: UITabBarController {
         }
     }
 
-    private func setup(viewControllers array: [UIViewController]) {
+    public func setup(viewControllers array: [UIViewController]) {
         guard array.count > 5 else { return }
         let itemsForShow = Array(array[0..<4])
         moreViewControllers = Array(array[4..<array.count])
@@ -161,7 +161,7 @@ extension ExpandedTabBarController: UITabBarControllerDelegate {
         guard let vcArray = viewControllers else { return }
         let index = vcArray
             .enumerated()
-            .flatMap { index, vc -> Int? in
+            .compactMap { index, vc -> Int? in
                 return (vc.restorationIdentifier?.hasPrefix(kMoreTabVCAtIndex) ?? false) ? index : nil
             }
             .last
@@ -176,14 +176,14 @@ extension ExpandedTabBarController: UITabBarControllerDelegate {
             let vcArray = viewControllers else { return }
         let index1 = vcArray
             .enumerated()
-            .flatMap { index, vc -> Int? in
+            .compactMap { index, vc -> Int? in
                 return vc.restorationIdentifier == kMoreTabVCIdentifier ? index : nil
             }
             .last
 
         let index2 = vcArray
             .enumerated()
-            .flatMap { index, vc -> Int? in
+            .compactMap { index, vc -> Int? in
                 return (vc.restorationIdentifier?.hasPrefix(kMoreTabVCAtIndex) ?? false) ? index : nil
             }
             .last
@@ -250,7 +250,7 @@ private extension ExpandedTabBarController {
         if let moreVCArray = moreViewControllers {
             moreVCArray
                 .enumerated()
-                .flatMap { [weak self] index, vc -> UIStackView? in
+                .compactMap { [weak self] index, vc -> UIStackView? in
                     guard let strongSelf = self else { return nil }
                     return ExpandedTabBarViews
                         .moreItemView(
