@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
 s.name             = 'ExpandedTabBar'
-s.version          = '1.0.3'
+s.version          = '1.1.0'
 s.summary          = 'ExpandedTabBar is a very creative designed solution for "more" items in UITabBarController'
 
 s.homepage         = 'https://github.com/yervandsar/ExpandedTabBar'
