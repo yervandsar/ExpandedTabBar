@@ -38,6 +38,7 @@ open class ExpandedTabBarController: UITabBarController {
     }
 
     public weak var expandedDelegate: ExpandedTabBarControllerDelegate?
+    private var closeTapGesture: UITapGestureRecognizer!
 
     private var containerBottomMargin: CGFloat = 15
     private var moreItemHeight: CGFloat = 35
@@ -56,7 +57,7 @@ open class ExpandedTabBarController: UITabBarController {
     private var triangleBottomConstraint: NSLayoutConstraint?
 
     private var parentViewWidthConstraint: NSLayoutConstraint?
-    
+
     override open func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
         super.viewWillTransition(to: size, with: coordinator)
         coordinator.animate(alongsideTransition: nil) { [weak self] _ in
@@ -65,17 +66,17 @@ open class ExpandedTabBarController: UITabBarController {
         }
     }
 
+    open override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        self.refreshContainerPosition(with: UIScreen.main.bounds.size)
+    }
+
     override open func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         delegate = self
         if let vcArray = viewControllers, !vcArray.isEmpty {
             self.setup(viewControllers: vcArray)
         }
-    }
-
-    open override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-        self.refreshContainerPosition(with: UIScreen.main.bounds.size)
     }
 
     public func setup(viewControllers array: [UIViewController]) {
@@ -94,11 +95,10 @@ open class ExpandedTabBarController: UITabBarController {
     internal func refreshContainerPosition(with size: CGSize) {
         guard let itemFrame = (self.tabBar.items?.last?.value(forKey: "view") as? UIView)?.frame else { return }
         let right = size.width - (itemFrame.origin.x + itemFrame.size.width / 2 + 10)
-        
+
         let offset: CGFloat = tabBar.bounds.size.height
         self.triangleRightConstraint?.constant = -1 * right
         self.bgViewBottomConstraint?.constant = -1 * offset
-        self.view.setNeedsLayout()
     }
 
     private func moreViewController() -> UIViewController {
@@ -113,26 +113,30 @@ open class ExpandedTabBarController: UITabBarController {
             ExpandedTabBarViews.calculateMoreContainerMaxSize().width : stackView.frame.size.width
         parentViewWidthConstraint?.constant = containerWidth < 160 ? 200 : containerWidth + 40
         UIView.animate(withDuration: 0.3) { [weak self] in
-            guard let strongSelf = self else { return }
-            strongSelf.backgroundView.alpha = 1
-            if let bottom = strongSelf.triangleBottomConstraint,
+            guard let self = self else { return }
+            self.backgroundView.alpha = 1
+            if let bottom = self.triangleBottomConstraint,
                 bottom.constant == 3000 {
-                bottom.constant = -1 * strongSelf.containerBottomMargin
-                strongSelf.backgroundView.layoutIfNeeded()
+                bottom.constant = -1 * self.containerBottomMargin
+                self.backgroundView.layoutIfNeeded()
             }
         }
     }
 
     private func hideMoreContainer() {
         UIView.animate(withDuration: 0.3) { [weak self] in
-            guard let strongSelf = self else { return }
-            strongSelf.backgroundView.alpha = 0
-            if let bottom = strongSelf.triangleBottomConstraint,
-                bottom.constant == -1 * strongSelf.containerBottomMargin {
+            guard let self = self else { return }
+            self.backgroundView.alpha = 0
+            if let bottom = self.triangleBottomConstraint,
+                bottom.constant == -1 * self.containerBottomMargin {
                 bottom.constant = 3000
-                strongSelf.backgroundView.layoutIfNeeded()
+                self.backgroundView.layoutIfNeeded()
             }
         }
+    }
+
+    @objc private func outsideTapped() {
+        self.hideMoreContainer()
     }
 
     private func setShadow(with options: ExpandedTabBarShadowOptions, to parentV: UIView) {
@@ -259,25 +263,32 @@ private extension ExpandedTabBarController {
             moreVCArray
                 .enumerated()
                 .compactMap { [weak self] index, vc -> UIStackView? in
-                    guard let strongSelf = self else { return nil }
+                    guard let self = self else { return nil }
                     return ExpandedTabBarViews
                         .moreItemView(
                             for: vc.tabBarItem,
                             at: index,
-                            itemHeight: strongSelf.moreItemHeight,
+                            itemHeight: self.moreItemHeight,
                             target: self,
                             action: #selector(itemTapped(_:)),
-                            options: strongSelf.options
+                            options: self.options
                     )
                 }
                 .forEach { [weak self] stackView in
-                    guard let strongSelf = self else { return  }
-                    strongSelf.stackView.addArrangedSubview(stackView)
+                    guard let self = self else { return  }
+                    self.stackView.addArrangedSubview(stackView)
             }
         }
         addContainerViewConstraints(to: backgroundView)
         refreshContainerPosition(with: view.frame.size)
         hideMoreContainer()
+    }
+
+    func addGestures() {
+        guard options.closeOnTap else { return }
+        closeTapGesture = UITapGestureRecognizer(target: self, action: #selector(outsideTapped))
+        let view = UIView()
+        backgroundView.addGestureRecognizer(closeTapGesture)
     }
 
     func addBGViewWithConstraints() {

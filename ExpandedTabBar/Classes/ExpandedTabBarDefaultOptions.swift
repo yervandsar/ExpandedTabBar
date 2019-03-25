@@ -13,6 +13,7 @@ public struct ExpandedTabBarDefaultOptions {
     /// Background view options
     static let backgroundColor: UIColor = .black
     static let backgroundAlpha: CGFloat = 0.4
+    static let closeOnTap: Bool = true
 
     /// List's container options
     static let containerBackgroundColor: UIColor = .white
