@@ -60,8 +60,8 @@ open class ExpandedTabBarController: UITabBarController {
     override open func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
         super.viewWillTransition(to: size, with: coordinator)
         coordinator.animate(alongsideTransition: nil) { [weak self] _ in
-            guard let strongSelf = self else { return }
-            strongSelf.refreshContainerPosition(with: size)
+            guard let self = self else { return }
+            self.refreshContainerPosition(with: size)
         }
     }
 
@@ -71,6 +71,11 @@ open class ExpandedTabBarController: UITabBarController {
         if let vcArray = viewControllers, !vcArray.isEmpty {
             self.setup(viewControllers: vcArray)
         }
+    }
+
+    open override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        self.refreshContainerPosition(with: UIScreen.main.bounds.size)
     }
 
     public func setup(viewControllers array: [UIViewController]) {
@@ -90,13 +95,10 @@ open class ExpandedTabBarController: UITabBarController {
         guard let itemFrame = (self.tabBar.items?.last?.value(forKey: "view") as? UIView)?.frame else { return }
         let right = size.width - (itemFrame.origin.x + itemFrame.size.width / 2 + 10)
         
-        var offset: CGFloat = tabBar.bounds.size.height
-        if #available(iOS 11.0, *) {
-            offset += UIApplication.shared.delegate?.window??.safeAreaInsets.bottom ?? 0.0
-        }
-        
+        let offset: CGFloat = tabBar.bounds.size.height
         self.triangleRightConstraint?.constant = -1 * right
         self.bgViewBottomConstraint?.constant = -1 * offset
+        self.view.setNeedsLayout()
     }
 
     private func moreViewController() -> UIViewController {
@@ -313,11 +315,7 @@ private extension ExpandedTabBarController {
             leftConstraint
             ])
 
-        var offset: CGFloat = tabBar.bounds.size.height
-        if #available(iOS 11.0, *) {
-            offset += UIApplication.shared.delegate?.window??.safeAreaInsets.bottom ?? 0.0
-        }
-        
+        let offset: CGFloat = tabBar.bounds.size.height
         bgViewBottomConstraint = NSLayoutConstraint(
             item: backgroundView,
             attribute: .bottom,
