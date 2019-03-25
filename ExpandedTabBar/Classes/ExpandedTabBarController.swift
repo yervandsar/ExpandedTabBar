@@ -38,7 +38,8 @@ open class ExpandedTabBarController: UITabBarController {
     }
 
     public weak var expandedDelegate: ExpandedTabBarControllerDelegate?
-
+    private var closeTapGesture: UITapGestureRecognizer!
+    
     private var containerBottomMargin: CGFloat = 15
     private var moreItemHeight: CGFloat = 35
 
@@ -216,7 +217,11 @@ private extension ExpandedTabBarController {
 
         backgroundView = ExpandedTabBarViews.bgView()
         backgroundView.backgroundColor = options.backgroundColor.withAlphaComponent(options.backgroundAlpha)
-
+        if options.addCloseGestureToBackground {
+            closeTapGesture = UITapGestureRecognizer(target: self, action: #selector(hideMoreContainer))
+            backgroundView.addGestureRecognizer(closeTapGesture)
+        }
+        
         triangleView = ExpandedTabBarViews.triangleView()
         triangleView.layer.zPosition = 2
         triangleView.color = options.containerBackgroundColor.withAlphaComponent(options.containerBackgroundAlpha)
