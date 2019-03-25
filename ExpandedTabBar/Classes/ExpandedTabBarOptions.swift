@@ -32,7 +32,7 @@ public struct ExpandedTabBarOptions {
     public var titleFont: UIFont = ExpandedTabBarDefaultOptions.titleFont
     public var titleColor: UIColor = ExpandedTabBarDefaultOptions.titleColor
     public var itemHeight: CGFloat = ExpandedTabBarDefaultOptions.itemHeight
-    public var imageContentMode: UIViewContentMode = ExpandedTabBarDefaultOptions.imageContentMode
+    public var imageContentMode: UIView.ContentMode = ExpandedTabBarDefaultOptions.imageContentMode
     public var spaceBetweenImageTitle: CGFloat = ExpandedTabBarDefaultOptions.spaceBetweenImageTitle
 
 }
