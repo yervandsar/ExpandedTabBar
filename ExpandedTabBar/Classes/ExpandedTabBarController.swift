@@ -89,8 +89,14 @@ open class ExpandedTabBarController: UITabBarController {
     internal func refreshContainerPosition(with size: CGSize) {
         guard let itemFrame = (self.tabBar.items?.last?.value(forKey: "view") as? UIView)?.frame else { return }
         let right = size.width - (itemFrame.origin.x + itemFrame.size.width / 2 + 10)
+        
+        var offset: CGFloat = tabBar.bounds.size.height
+        if #available(iOS 11.0, *) {
+            offset += UIApplication.shared.delegate?.window??.safeAreaInsets.bottom ?? 0.0
+        }
+        
         self.triangleRightConstraint?.constant = -1 * right
-        self.bgViewBottomConstraint?.constant = -1 * self.tabBar.bounds.size.height
+        self.bgViewBottomConstraint?.constant = -1 * offset
     }
 
     private func moreViewController() -> UIViewController {
@@ -307,6 +313,11 @@ private extension ExpandedTabBarController {
             leftConstraint
             ])
 
+        var offset: CGFloat = tabBar.bounds.size.height
+        if #available(iOS 11.0, *) {
+            offset += UIApplication.shared.delegate?.window??.safeAreaInsets.bottom ?? 0.0
+        }
+        
         bgViewBottomConstraint = NSLayoutConstraint(
             item: backgroundView,
             attribute: .bottom,
@@ -314,7 +325,7 @@ private extension ExpandedTabBarController {
             toItem: view,
             attribute: .bottom,
             multiplier: 1.0,
-            constant: -1 * tabBar.bounds.size.height
+            constant: -1 * offset
         )
 
         if let bottomConstraint = bgViewBottomConstraint {
