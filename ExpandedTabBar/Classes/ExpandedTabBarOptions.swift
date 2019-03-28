@@ -19,7 +19,7 @@ public struct ExpandedTabBarOptions {
     /// Background view options
     public var backgroundColor: UIColor = ExpandedTabBarDefaultOptions.backgroundColor
     public var backgroundAlpha: CGFloat = ExpandedTabBarDefaultOptions.backgroundAlpha
-    public var addCloseGestureToBackground: Bool = ExpandedTabBarDefaultOptions.addCloseGestureToBackground
+    public var closeOnTap: Bool = ExpandedTabBarDefaultOptions.closeOnTap
 
     /// List's container options
     public var containerBackgroundColor: UIColor = ExpandedTabBarDefaultOptions.containerBackgroundColor
