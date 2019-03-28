@@ -57,6 +57,9 @@ open class ExpandedTabBarController: UITabBarController {
     internal var bgViewBottomConstraint: NSLayoutConstraint?
     internal var triangleBottomConstraint: NSLayoutConstraint?
     internal var parentViewWidthConstraint: NSLayoutConstraint?
+    
+    private var containerBottomMargin: CGFloat = 15
+    private var moreItemHeight: CGFloat = 35
 
     internal var containerBottomMargin: CGFloat = 15
     internal var moreItemHeight: CGFloat = 35
