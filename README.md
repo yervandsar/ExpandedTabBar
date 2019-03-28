@@ -1,10 +1,10 @@
-# ExpandedTabBar
+# ExpandedTabBar v2.0.0
 
 ### ExpandedTabBar is a very creative designed solution for "more" items in UITabBarController
 
 
-![Swift 3.x](https://img.shields.io/badge/Swift-3.x-blue.svg)
 ![Swift 4.x](https://img.shields.io/badge/Swift-4.x-orange.svg)
+![Swift 5.x](https://img.shields.io/badge/Swift-5.x-blue.svg)
 ![iOS 9.0+](https://img.shields.io/badge/iOS-9.0+-green.svg)
 ![Badge w/ Version](https://img.shields.io/cocoapods/v/ExpandedTabBar.svg)
 
@@ -44,37 +44,36 @@ To customize view you should change options with `ExpandedTabBarOptions` and `Ex
     /// Background view options
     backgroundColor: UIColor // Default .black
     backgroundAlpha: CGFloat // Default 0.4
+    closeOnTap     : Bool    // Default true
 
     /// List's container options
-    containerBackgroundColor: UIColor // Default .white
-    containerBackgroundAlpha: CGFloat // Default 1.0
-    containerCornerRadius: CGFloat // Default 5.0
-    containerBottomMargin: CGFloat // Default 15.0
-    containerItemsSpace: CGFloat // Default 8.0
-    shadow: ExpandedTabBarShadowOptions? // Default nil
+    containerBackgroundColor: UIColor                      // Default .white
+    containerBackgroundAlpha: CGFloat                      // Default 1.0
+    containerCornerRadius   : CGFloat                      // Default 5.0
+    containerBottomMargin   : CGFloat                      // Default 15.0
+    containerItemsSpace     : CGFloat                      // Default 8.0
+    shadow                  : ExpandedTabBarShadowOptions? // Default nil
 
     /// Item View Options
-    titleFont: UIFont // Default .systemFont(ofSize: 16)
-    titleColor: UIColor // Default .black
-    itemHeight: CGFloat // Default 35.0
-    imageContentMode: UIViewContentMode // Default .scaleAspectFit
-    spaceBetweenImageTitle: CGFloat // Default 8.0
+    titleFont             : UIFont            // Default .systemFont(ofSize: 16)
+    titleColor            : UIColor           // Default .black
+    itemHeight            : CGFloat           // Default 35.0
+    imageContentMode      : UIViewContentMode // Default .scaleAspectFit
+    spaceBetweenImageTitle: CGFloat           // Default 8.0
 
 
     //MARK :- ExpandedTabBarShadowOptions
 
-    color: UIColor // Default .black
-    offset: CGSize // Default .zero
-    opacity: Float // Default 0.5
-    radius: CGFloat // Default 5.0
+    color  : UIColor // Default .black
+    offset : CGSize  // Default .zero
+    opacity: Float   // Default 0.5
+    radius : CGFloat // Default 5.0
 ```
 
 For tab selection action please implement  `ExpandedTabBarControllerDelegate`:
 
 ```swift
-@objc public protocol ExpandedTabBarControllerDelegate: class {
     func expandedTabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController, withItem tabBarItem: UITabBarItem?)
-}
 ```
 
 
@@ -98,10 +97,6 @@ class CustomViewController: ExpandedTabBarController {
         options.containerItemsSpace = 15
         options.spaceBetweenImageTitle = 15
         self.options = options
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
     }
 }
 
