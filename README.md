@@ -73,7 +73,12 @@ To customize view you should change options with `ExpandedTabBarOptions` and `Ex
 For tab selection action please implement  `ExpandedTabBarControllerDelegate`:
 
 ```swift
-    func expandedTabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController, withItem tabBarItem: UITabBarItem?)
+
+func expandedTabBarController(
+    _ tabBarController: UITabBarController, 
+    didSelect viewController: UIViewController, 
+    withItem tabBarItem: UITabBarItem?
+)
 ```
 
 
