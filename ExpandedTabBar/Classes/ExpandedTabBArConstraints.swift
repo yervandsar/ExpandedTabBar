@@ -1,5 +1,5 @@
 //
-//  ExpandedTabBArConstraints.swift
+//  ExpandedTabBarConstraints.swift
 //  ExpandedTabBar
 //
 //  Created by Yervand Saribekyan on 3/28/19.
