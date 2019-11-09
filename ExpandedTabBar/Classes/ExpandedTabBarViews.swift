@@ -51,7 +51,8 @@ class ExpandedTabBarViews {
 
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFit
-        imageView.image = item.image
+        imageView.image = item.image?.withRenderingMode(.alwaysTemplate)
+        imageView.tintColor = options.icontColor
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.addConstraint(
             NSLayoutConstraint(

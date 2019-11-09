@@ -97,7 +97,6 @@
 			children = (
 				C1BE85E120591AED00B4411F /* Resources */,
 				C1BE85D22058F70C00B4411F /* Classes */,
-				C1B6CAB420529CF800E25547 /* AppDelegate.swift */,
 				C1B6CAB620529CF800E25547 /* CustomViewController.swift */,
 				C1B6CAB820529CF800E25547 /* Main.storyboard */,
 				C1B6CABB20529CF800E25547 /* Assets.xcassets */,
@@ -119,6 +118,7 @@
 				3E499D82224CC4F0005602D6 /* ExpandedTabBarContainers.swift */,
 				3E499D84224CCA9A005602D6 /* ExpandedTabBarConstraints.swift */,
 				3E499D86224CD542005602D6 /* ExpandedTabBarControllerDelegate.swift */,
+				C1B6CAB420529CF800E25547 /* AppDelegate.swift */,
 			);
 			path = Classes;
 			sourceTree = "<group>";

@@ -25,6 +25,7 @@ public struct ExpandedTabBarDefaultOptions {
     /// Item View Options
     static let titleFont: UIFont = .systemFont(ofSize: 16)
     static let titleColor: UIColor = .black
+    static let iconColor: UIColor = .black
     static let itemHeight: CGFloat = 35.0
     static let imageContentMode: UIView.ContentMode = .scaleAspectFit
     static let spaceBetweenImageTitle: CGFloat = 8

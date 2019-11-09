@@ -1,4 +1,4 @@
-# ExpandedTabBar v2.0.0
+# ExpandedTabBar v2.0.1
 
 ### ExpandedTabBar is a very creative designed solution for "more" items in UITabBarController
 
@@ -57,6 +57,7 @@ To customize view you should change options with `ExpandedTabBarOptions` and `Ex
     /// Item View Options
     titleFont             : UIFont            // Default .systemFont(ofSize: 16)
     titleColor            : UIColor           // Default .black
+    iconColor             : UIColor           // Default .black
     itemHeight            : CGFloat           // Default 35.0
     imageContentMode      : UIViewContentMode // Default .scaleAspectFit
     spaceBetweenImageTitle: CGFloat           // Default 8.0
