@@ -9,7 +9,7 @@ s.author           = { 'Yervand Saribekyan' => 'yervandsar@gmail.com' }
 s.source           = { :git => 'https://github.com/yervandsar/ExpandedTabBar.git', :tag => s.version.to_s }
 
 s.ios.deployment_target = '11.0'
-s.source_files     = "ExpandedTabBar/Classes/*"
-s.resources        = "ExpandedTabBar/Resources/TabBar.xcassets"
+s.source_files     = "Sources/ExpandedTabBar/*.swift"
+s.resources        = "Sources/ExpandedTabBar/Resources/TabBar.xcassets"
 
 end

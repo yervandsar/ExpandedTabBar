@@ -10,6 +10,7 @@
 		3E499D83224CC4F0005602D6 /* ExpandedTabBarContainers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E499D82224CC4F0005602D6 /* ExpandedTabBarContainers.swift */; };
 		3E499D85224CCA9A005602D6 /* ExpandedTabBarConstraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E499D84224CCA9A005602D6 /* ExpandedTabBarConstraints.swift */; };
 		3E499D87224CD542005602D6 /* ExpandedTabBarControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E499D86224CD542005602D6 /* ExpandedTabBarControllerDelegate.swift */; };
+		3EDB6E8D245CCE420032BC9D /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EDB6E8C245CCE420032BC9D /* Package.swift */; };
 		3EF5188C245CC8CE00F60C21 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EF5188B245CC8CE00F60C21 /* AppDelegate.swift */; };
 		C10A528B2057DF1A004A731B /* ExpandedTabBarViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = C10A528A2057DF1A004A731B /* ExpandedTabBarViews.swift */; };
 		C10A528D2057E7C7004A731B /* ExpandedTabBarDefaultOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C10A528C2057E7C7004A731B /* ExpandedTabBarDefaultOptions.swift */; };
@@ -35,6 +36,7 @@
 		3E499D82224CC4F0005602D6 /* ExpandedTabBarContainers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpandedTabBarContainers.swift; sourceTree = "<group>"; };
 		3E499D84224CCA9A005602D6 /* ExpandedTabBarConstraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpandedTabBarConstraints.swift; sourceTree = "<group>"; };
 		3E499D86224CD542005602D6 /* ExpandedTabBarControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpandedTabBarControllerDelegate.swift; sourceTree = "<group>"; };
+		3EDB6E8C245CCE420032BC9D /* Package.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; };
 		3EF5188B245CC8CE00F60C21 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C10A528A2057DF1A004A731B /* ExpandedTabBarViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpandedTabBarViews.swift; sourceTree = "<group>"; };
 		C10A528C2057E7C7004A731B /* ExpandedTabBarDefaultOptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpandedTabBarDefaultOptions.swift; sourceTree = "<group>"; };
@@ -69,10 +71,36 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3EDB6E8E245CCE540032BC9D /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				3EDB6E9A245CCE9B0032BC9D /* ExpandedTabBar */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
+		3EDB6E9A245CCE9B0032BC9D /* ExpandedTabBar */ = {
+			isa = PBXGroup;
+			children = (
+				C1BE85E120591AED00B4411F /* Resources */,
+				C1BE85F02059418D00B4411F /* UIImage+Bundle.swift */,
+				C13C0EF72052A5D5002E9350 /* ExpandedTabBarController.swift */,
+				C1B0B5EA205679EA005B6639 /* TriangleView.swift */,
+				C10A528A2057DF1A004A731B /* ExpandedTabBarViews.swift */,
+				C10A528C2057E7C7004A731B /* ExpandedTabBarDefaultOptions.swift */,
+				C10A528E2057EC32004A731B /* ExpandedTabBarOptions.swift */,
+				3E499D82224CC4F0005602D6 /* ExpandedTabBarContainers.swift */,
+				3E499D84224CCA9A005602D6 /* ExpandedTabBarConstraints.swift */,
+				3E499D86224CD542005602D6 /* ExpandedTabBarControllerDelegate.swift */,
+			);
+			path = ExpandedTabBar;
+			sourceTree = "<group>";
+		};
 		C1B6CAA820529CF800E25547 = {
 			isa = PBXGroup;
 			children = (
 				C1BE85E82059221300B4411F /* .swift-version */,
+				3EDB6E8C245CCE420032BC9D /* Package.swift */,
 				C1BE85D42058FB8D00B4411F /* LICENSE */,
 				C1BE85D62058FB8D00B4411F /* README.md */,
 				C1BE85EE20592BA800B4411F /* more.gif */,
@@ -80,6 +108,7 @@
 				C1BE85DD20590F7600B4411F /* setup2.png */,
 				C1BE85D32058FB8D00B4411F /* ExpandedTabBar.podspec */,
 				C1B6CAB320529CF800E25547 /* ExpandedTabBar */,
+				3EDB6E8E245CCE540032BC9D /* Sources */,
 				C1B6CAB220529CF800E25547 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -95,8 +124,6 @@
 		C1B6CAB320529CF800E25547 /* ExpandedTabBar */ = {
 			isa = PBXGroup;
 			children = (
-				C1BE85E120591AED00B4411F /* Resources */,
-				C1BE85D22058F70C00B4411F /* Classes */,
 				C1B6CAB620529CF800E25547 /* CustomViewController.swift */,
 				3EF5188B245CC8CE00F60C21 /* AppDelegate.swift */,
 				C1B6CAB820529CF800E25547 /* Main.storyboard */,
@@ -105,22 +132,6 @@
 				C1B6CAC020529CF800E25547 /* Info.plist */,
 			);
 			path = ExpandedTabBar;
-			sourceTree = "<group>";
-		};
-		C1BE85D22058F70C00B4411F /* Classes */ = {
-			isa = PBXGroup;
-			children = (
-				C1BE85F02059418D00B4411F /* UIImage+Bundle.swift */,
-				C13C0EF72052A5D5002E9350 /* ExpandedTabBarController.swift */,
-				C1B0B5EA205679EA005B6639 /* TriangleView.swift */,
-				C10A528A2057DF1A004A731B /* ExpandedTabBarViews.swift */,
-				C10A528C2057E7C7004A731B /* ExpandedTabBarDefaultOptions.swift */,
-				C10A528E2057EC32004A731B /* ExpandedTabBarOptions.swift */,
-				3E499D82224CC4F0005602D6 /* ExpandedTabBarContainers.swift */,
-				3E499D84224CCA9A005602D6 /* ExpandedTabBarConstraints.swift */,
-				3E499D86224CD542005602D6 /* ExpandedTabBarControllerDelegate.swift */,
-			);
-			path = Classes;
 			sourceTree = "<group>";
 		};
 		C1BE85E120591AED00B4411F /* Resources */ = {
@@ -212,6 +223,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3EDB6E8D245CCE420032BC9D /* Package.swift in Sources */,
 				3EF5188C245CC8CE00F60C21 /* AppDelegate.swift in Sources */,
 				C1B6CAB720529CF800E25547 /* CustomViewController.swift in Sources */,
 				3E499D83224CC4F0005602D6 /* ExpandedTabBarContainers.swift in Sources */,
