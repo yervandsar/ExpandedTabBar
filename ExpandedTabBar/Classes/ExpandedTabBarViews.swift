@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ExpandedTabBarViews {
+internal final class ExpandedTabBarViews {
 
     class func moreItemView(
         for item: UITabBarItem,

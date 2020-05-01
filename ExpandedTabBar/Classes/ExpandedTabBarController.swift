@@ -14,7 +14,10 @@ let kMoreTabVCAtIndex = "_UIExpandedTabBarMoreAt"
 let kMoreStackAtIndex = "_UIExpandedTabBarMoreStackAt"
 
 @objc public protocol ExpandedTabBarControllerDelegate: class {
-    func expandedTabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController, withItem tabBarItem: UITabBarItem?)
+    func expandedTabBarController(
+        _ tabBarController: UITabBarController,
+        didSelect viewController: UIViewController,
+        withItem tabBarItem: UITabBarItem?)
 }
 
 open class ExpandedTabBarController: UITabBarController {
@@ -66,7 +69,6 @@ open class ExpandedTabBarController: UITabBarController {
 
 
     // MARK: - Cycle
-
     override open func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
         super.viewWillTransition(to: size, with: coordinator)
         coordinator.animate(alongsideTransition: nil) { [weak self] _ in

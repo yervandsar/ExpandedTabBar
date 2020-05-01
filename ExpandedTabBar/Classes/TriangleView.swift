@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TriangleView: UIView {
+internal final class TriangleView: UIView {
 
     @IBInspectable
     var color: UIColor = .black {

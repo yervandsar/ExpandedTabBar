@@ -1,19 +1,17 @@
-# ExpandedTabBar v2.0.1
+# ExpandedTabBar v2.0.2
 
 ### ExpandedTabBar is a very creative designed solution for "more" items in UITabBarController
 
-
-![Swift 4.x](https://img.shields.io/badge/Swift-4.x-orange.svg)
 ![Swift 5.x](https://img.shields.io/badge/Swift-5.x-blue.svg)
-![iOS 9.0+](https://img.shields.io/badge/iOS-9.0+-green.svg)
+![iOS 11.0+](https://img.shields.io/badge/iOS-11.0+-green.svg)
 ![Badge w/ Version](https://img.shields.io/cocoapods/v/ExpandedTabBar.svg)
 
 ![Preview](more.gif)
 
 ## Requirements
 
-* iOS 9.0+
-* Swift 3.x, 4.x, 5.x
+* iOS 11.0+
+* Swift 5.x
 * Xcode 10+
 
 ## Installation
@@ -63,7 +61,7 @@ To customize view you should change options with `ExpandedTabBarOptions` and `Ex
     spaceBetweenImageTitle: CGFloat           // Default 8.0
 
 
-    //MARK :- ExpandedTabBarShadowOptions
+    // MARK :- ExpandedTabBarShadowOptions
 
     color  : UIColor // Default .black
     offset : CGSize  // Default .zero

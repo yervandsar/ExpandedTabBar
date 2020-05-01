@@ -10,12 +10,12 @@
 		3E499D83224CC4F0005602D6 /* ExpandedTabBarContainers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E499D82224CC4F0005602D6 /* ExpandedTabBarContainers.swift */; };
 		3E499D85224CCA9A005602D6 /* ExpandedTabBarConstraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E499D84224CCA9A005602D6 /* ExpandedTabBarConstraints.swift */; };
 		3E499D87224CD542005602D6 /* ExpandedTabBarControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E499D86224CD542005602D6 /* ExpandedTabBarControllerDelegate.swift */; };
+		3EF5188C245CC8CE00F60C21 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EF5188B245CC8CE00F60C21 /* AppDelegate.swift */; };
 		C10A528B2057DF1A004A731B /* ExpandedTabBarViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = C10A528A2057DF1A004A731B /* ExpandedTabBarViews.swift */; };
 		C10A528D2057E7C7004A731B /* ExpandedTabBarDefaultOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C10A528C2057E7C7004A731B /* ExpandedTabBarDefaultOptions.swift */; };
 		C10A528F2057EC32004A731B /* ExpandedTabBarOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C10A528E2057EC32004A731B /* ExpandedTabBarOptions.swift */; };
 		C13C0EF82052A5D5002E9350 /* ExpandedTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C13C0EF72052A5D5002E9350 /* ExpandedTabBarController.swift */; };
 		C1B0B5EB205679EA005B6639 /* TriangleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1B0B5EA205679EA005B6639 /* TriangleView.swift */; };
-		C1B6CAB520529CF800E25547 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1B6CAB420529CF800E25547 /* AppDelegate.swift */; };
 		C1B6CAB720529CF800E25547 /* CustomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1B6CAB620529CF800E25547 /* CustomViewController.swift */; };
 		C1B6CABA20529CF800E25547 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C1B6CAB820529CF800E25547 /* Main.storyboard */; };
 		C1B6CABC20529CF800E25547 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C1B6CABB20529CF800E25547 /* Assets.xcassets */; };
@@ -35,13 +35,13 @@
 		3E499D82224CC4F0005602D6 /* ExpandedTabBarContainers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpandedTabBarContainers.swift; sourceTree = "<group>"; };
 		3E499D84224CCA9A005602D6 /* ExpandedTabBarConstraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpandedTabBarConstraints.swift; sourceTree = "<group>"; };
 		3E499D86224CD542005602D6 /* ExpandedTabBarControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpandedTabBarControllerDelegate.swift; sourceTree = "<group>"; };
+		3EF5188B245CC8CE00F60C21 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C10A528A2057DF1A004A731B /* ExpandedTabBarViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpandedTabBarViews.swift; sourceTree = "<group>"; };
 		C10A528C2057E7C7004A731B /* ExpandedTabBarDefaultOptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpandedTabBarDefaultOptions.swift; sourceTree = "<group>"; };
 		C10A528E2057EC32004A731B /* ExpandedTabBarOptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpandedTabBarOptions.swift; sourceTree = "<group>"; };
 		C13C0EF72052A5D5002E9350 /* ExpandedTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpandedTabBarController.swift; sourceTree = "<group>"; };
 		C1B0B5EA205679EA005B6639 /* TriangleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TriangleView.swift; sourceTree = "<group>"; };
 		C1B6CAB120529CF800E25547 /* ExpandedTabBar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ExpandedTabBar.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		C1B6CAB420529CF800E25547 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C1B6CAB620529CF800E25547 /* CustomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomViewController.swift; sourceTree = "<group>"; };
 		C1B6CAB920529CF800E25547 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C1B6CABB20529CF800E25547 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -98,6 +98,7 @@
 				C1BE85E120591AED00B4411F /* Resources */,
 				C1BE85D22058F70C00B4411F /* Classes */,
 				C1B6CAB620529CF800E25547 /* CustomViewController.swift */,
+				3EF5188B245CC8CE00F60C21 /* AppDelegate.swift */,
 				C1B6CAB820529CF800E25547 /* Main.storyboard */,
 				C1B6CABB20529CF800E25547 /* Assets.xcassets */,
 				C1B6CABD20529CF800E25547 /* LaunchScreen.storyboard */,
@@ -118,7 +119,6 @@
 				3E499D82224CC4F0005602D6 /* ExpandedTabBarContainers.swift */,
 				3E499D84224CCA9A005602D6 /* ExpandedTabBarConstraints.swift */,
 				3E499D86224CD542005602D6 /* ExpandedTabBarControllerDelegate.swift */,
-				C1B6CAB420529CF800E25547 /* AppDelegate.swift */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -212,11 +212,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3EF5188C245CC8CE00F60C21 /* AppDelegate.swift in Sources */,
 				C1B6CAB720529CF800E25547 /* CustomViewController.swift in Sources */,
 				3E499D83224CC4F0005602D6 /* ExpandedTabBarContainers.swift in Sources */,
 				C10A528F2057EC32004A731B /* ExpandedTabBarOptions.swift in Sources */,
 				3E499D85224CCA9A005602D6 /* ExpandedTabBarConstraints.swift in Sources */,
-				C1B6CAB520529CF800E25547 /* AppDelegate.swift in Sources */,
 				C10A528B2057DF1A004A731B /* ExpandedTabBarViews.swift in Sources */,
 				3E499D87224CD542005602D6 /* ExpandedTabBarControllerDelegate.swift in Sources */,
 				C10A528D2057E7C7004A731B /* ExpandedTabBarDefaultOptions.swift in Sources */,
@@ -364,10 +364,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = Y2RY2C6N5B;
+				DEVELOPMENT_TEAM = 94ST773MP3;
 				INFOPLIST_FILE = ExpandedTabBar/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				MARKETING_VERSION = 2.0.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.yervandsar.ExpandedTabBar;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -380,10 +381,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = Y2RY2C6N5B;
+				DEVELOPMENT_TEAM = 94ST773MP3;
 				INFOPLIST_FILE = ExpandedTabBar/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				MARKETING_VERSION = 2.0.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.yervandsar.ExpandedTabBar;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
