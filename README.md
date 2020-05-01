@@ -1,4 +1,4 @@
-# ExpandedTabBar v2.0.2
+# ExpandedTabBar v2.1.0
 
 ### ExpandedTabBar is a very creative designed solution for "more" items in UITabBarController
 
@@ -12,11 +12,13 @@
 
 * iOS 11.0+
 * Swift 5.x
-* Xcode 10+
+* Xcode 11+
 
 ## Installation
 
-#### [CocoaPods](https://cocoapods.org/)
+#### 1. [Swift Package Manager](https://swift.org/package-manager/)
+
+#### 2. [CocoaPods](https://cocoapods.org/)
 
 ```ruby
 pod 'ExpandedTabBar'

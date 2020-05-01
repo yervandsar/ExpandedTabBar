@@ -5,6 +5,7 @@
 //  Created by Yervand Saribekyan on 3/12/18.
 //  Copyright © 2018 Yervand Saribekyan. All rights reserved.
 //
+#if !os(macOS)
 
 import UIKit
 
@@ -41,3 +42,4 @@ internal final class TriangleView: UIView {
     }
 
 }
+#endif

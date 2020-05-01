@@ -5,6 +5,7 @@
 //  Created by Yervand Saribekyan on 3/28/19.
 //  Copyright © 2019 Yervand Saribekyan. All rights reserved.
 //
+#if !os(macOS)
 
 import Foundation
 import UIKit
@@ -115,3 +116,4 @@ internal extension ExpandedTabBarController {
         stackView.layoutMargins = UIEdgeInsets(top: 15, left: 15, bottom: 15, right: 15 )
     }
 }
+#endif

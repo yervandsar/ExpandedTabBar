@@ -5,6 +5,7 @@
 //  Created by Yervand Saribekyan on 3/13/18.
 //  Copyright © 2018 Yervand Saribekyan. All rights reserved.
 //
+#if !os(macOS)
 
 import UIKit
 
@@ -103,3 +104,4 @@ internal final class ExpandedTabBarViews {
         return CGSize(width: UIScreen.main.bounds.size.width * 0.9, height: UIScreen.main.bounds.size.height * 0.8)
     }
 }
+#endif

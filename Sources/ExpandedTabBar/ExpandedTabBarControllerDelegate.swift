@@ -5,6 +5,7 @@
 //  Created by Yervand Saribekyan on 3/28/19.
 //  Copyright © 2019 Yervand Saribekyan. All rights reserved.
 //
+#if !os(macOS)
 
 import UIKit
 
@@ -68,3 +69,4 @@ extension ExpandedTabBarController: UITabBarControllerDelegate {
         expandedDelegate?.expandedTabBarController(self, didSelect: selectedVC, withItem: tabBarItem)
     }
 }
+#endif

@@ -5,6 +5,7 @@
 //  Created by Yervand Saribekyan on 3/13/18.
 //  Copyright © 2018 Yervand Saribekyan. All rights reserved.
 //
+#if !os(macOS)
 
 import UIKit
 
@@ -53,3 +54,4 @@ public struct ExpandedTabBarShadowOptions {
     public var radius: CGFloat = ExpandedTabBarShadowDefaultOptions.radius
 
 }
+#endif
