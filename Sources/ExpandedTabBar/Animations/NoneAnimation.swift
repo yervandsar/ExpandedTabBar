@@ -28,7 +28,7 @@ public final class NoneAnimation: AnimationProtocol {
     
     /// Intialize with duration
     /// - Parameter duration: TimeInterval. `Default is 0.0`
-    init(duration: TimeInterval = 0.0) {
+    public init(duration: TimeInterval = 0.0) {
         self.duration = duration
     }
 

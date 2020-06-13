@@ -38,15 +38,9 @@ public final class ShadowOptionsFactory: ShadowOptions {
     
     /// Radius.
     public var radius: CGFloat = 5
+    
+    public init() { }
 
-}
-
-public extension ShadowOptions {
-    static var `default`: ShadowOptions { ShadowOptionsFactory() }
-}
-
-public extension Optional where Wrapped: ShadowOptions {
-    static var `default`: ShadowOptions { ShadowOptionsFactory() }
 }
 
 public extension UIView {

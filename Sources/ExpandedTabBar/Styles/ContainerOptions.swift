@@ -63,6 +63,8 @@ public final class ContainerOptionsFactory: ContainerOptions {
     
     /// Present animation style.
     public var animation: AnimationType = .default
+    
+    public init() { }
 
 }
 #endif

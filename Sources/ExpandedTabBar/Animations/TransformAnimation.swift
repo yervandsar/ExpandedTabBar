@@ -14,8 +14,16 @@ open class TransformAnimation: AnimationProtocol {
     
     private let transform: CGAffineTransform
     
-    init(transform: CGAffineTransform) {
+    /// Initialize with transform animation.
+    /// - Parameter transform: CGAffineTransform
+    public init(transform: CGAffineTransform) {
         self.transform = transform
+    }
+    
+    /// Initialize with multiple transform animations.
+    /// - Parameter transforms: Array of CGAffineTransform
+    public init(transforms: [CGAffineTransform]) {
+        self.transform = transforms.reduce(CGAffineTransform.identity) { $0.concatenating($1) }
     }
     
     /// `Optional Method:` Notify before show animation start.
@@ -68,15 +76,15 @@ open class TransformAnimation: AnimationProtocol {
 /// TranslateAnimation Declaration.
 public final class TranslateAnimation: TransformAnimation {
 
-    init(x: CGFloat, y: CGFloat) {
+    public init(x: CGFloat, y: CGFloat) {
         super.init(transform: CGAffineTransform(translationX: x, y: y))
     }
 
-    init(x: CGFloat) {
+    public init(x: CGFloat) {
         super.init(transform: CGAffineTransform(translationX: x, y: 1))
     }
 
-    init(y: CGFloat) {
+    public init(y: CGFloat) {
         super.init(transform: CGAffineTransform(translationX: 1, y: y))
     }
 
@@ -87,7 +95,7 @@ public final class TranslateAnimation: TransformAnimation {
 /// ZoomAnimation Declaration.
 public final class ZoomAnimation: TransformAnimation {
 
-    init(x: CGFloat, y: CGFloat) {
+    public init(x: CGFloat, y: CGFloat) {
         super.init(transform: CGAffineTransform(scaleX: max(x, 0.1), y: max(y, 0.1)))
     }
 
@@ -98,7 +106,7 @@ public final class ZoomAnimation: TransformAnimation {
 /// RotateAnimation Declaration.
 public final class RotateAnimation: TransformAnimation {
 
-    init(rotationAngle: CGFloat) {
+    public init(rotationAngle: CGFloat) {
         super.init(transform: CGAffineTransform(rotationAngle: rotationAngle))
     }
 

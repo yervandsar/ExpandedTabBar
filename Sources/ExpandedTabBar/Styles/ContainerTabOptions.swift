@@ -51,6 +51,8 @@ public final class ContainerTabBarOptionsFactory: ContainerTabOptions {
     
     /// Space between icon and title
     public var iconTitleSpace: CGFloat = 8
+    
+    public init() { }
 
 }
 #endif

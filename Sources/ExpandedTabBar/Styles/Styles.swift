@@ -39,6 +39,7 @@ public final class OptionsFactory: Options {
     /// More container's background options
     public var background: BackgroundOptions = BackgroundOptionsFactory()
     
+    public init() { }
     
 }
 #endif

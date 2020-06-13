@@ -33,5 +33,7 @@ public final class BackgroundOptionsFactory: BackgroundOptions {
     /// Close on tap to background.
     public var closeOnTap: Bool = true
     
+    public init() { }
+    
 }
 #endif
