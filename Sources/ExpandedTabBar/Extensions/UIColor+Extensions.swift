@@ -38,4 +38,21 @@ public extension UIColor {
         }
     }
 }
+
+public extension CGColor {
+
+    /// Create color pattern for dark mode support if needed.
+    /// - Parameters:
+    ///   - light: Color in light mode
+    ///   - dark: Color in dark mode
+    /// - Returns: Color for device os style.
+    class func pattern(light: UIColor, dark: UIColor) -> CGColor {
+        if #available(iOS 13, *) {
+            let uiColor = UIColor { $0.userInterfaceStyle == .dark ? dark : light }
+            return uiColor.cgColor
+        } else {
+            return light.cgColor
+        }
+    }
+}
 #endif

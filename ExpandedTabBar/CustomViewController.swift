@@ -13,11 +13,11 @@ class CustomViewController: ExpandedTabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
         expandedDelegate = self
-        setOptions()
+        initOptions()
         
     }
     
-    private func setOptions() {
+    private func initOptions() {
         let container = options.container
         container.shadow = ShadowOptionsFactory()
         container.tabSpace = 15

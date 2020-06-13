@@ -41,7 +41,6 @@
 		C1BE85DE20590F7600B4411F /* setup2.png in Resources */ = {isa = PBXBuildFile; fileRef = C1BE85DD20590F7600B4411F /* setup2.png */; };
 		C1BE85E92059221300B4411F /* .swift-version in Resources */ = {isa = PBXBuildFile; fileRef = C1BE85E82059221300B4411F /* .swift-version */; };
 		C1BE85EF20592BA800B4411F /* more.gif in Resources */ = {isa = PBXBuildFile; fileRef = C1BE85EE20592BA800B4411F /* more.gif */; };
-		C1BE85F12059418E00B4411F /* UIImage+Bundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1BE85F02059418D00B4411F /* UIImage+Bundle.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -81,7 +80,6 @@
 		C1BE85DD20590F7600B4411F /* setup2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = setup2.png; sourceTree = "<group>"; };
 		C1BE85E82059221300B4411F /* .swift-version */ = {isa = PBXFileReference; lastKnownFileType = text; path = ".swift-version"; sourceTree = "<group>"; };
 		C1BE85EE20592BA800B4411F /* more.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = more.gif; sourceTree = "<group>"; };
-		C1BE85F02059418D00B4411F /* UIImage+Bundle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Bundle.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -131,7 +129,6 @@
 		3E8425CB249414A7000C1828 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				C1BE85F02059418D00B4411F /* UIImage+Bundle.swift */,
 				3E8425D024941A82000C1828 /* UIView+Extensions.swift */,
 				3E11E2A32491842100A0FC41 /* UIColor+Extensions.swift */,
 				3E8425CC249414C5000C1828 /* Constraints+Extensions.swift */,
@@ -302,7 +299,6 @@
 				3E30FF472494DA96006772DE /* TransformAnimation.swift in Sources */,
 				3E11E29C24917F7900A0FC41 /* ContainerOptions.swift in Sources */,
 				3E5FF4D324934BBE00678166 /* ContainerView.swift in Sources */,
-				C1BE85F12059418E00B4411F /* UIImage+Bundle.swift in Sources */,
 				C1B0B5EB205679EA005B6639 /* TriangleView.swift in Sources */,
 				C13C0EF82052A5D5002E9350 /* ExpandedTabBarController.swift in Sources */,
 				3E11E2A024917F9A00A0FC41 /* BackgroundOptions.swift in Sources */,
