@@ -13,25 +13,23 @@ class CustomViewController: ExpandedTabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
         expandedDelegate = self
-        initOptions()
+        setOptions()
+        
     }
-
-    func initOptions() {
-        var options = ExpandedTabBarOptions()
-        options.backgroundAlpha = 0.3
-        options.shadow = .default
-        options.containerItemsSpace = 15 // Default 8.0
-        options.spaceBetweenImageTitle = 15 // Default 8.0
-        self.options = options
+    
+    private func setOptions() {
+        let container = options.container
+        container.shadow = ShadowOptionsFactory()
+        container.tabSpace = 15
+        container.tab.iconTitleSpace = 15
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-    }
+    
 }
 
 extension CustomViewController: ExpandedTabBarControllerDelegate {
-    func expandedTabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController, withItem tabBarItem: UITabBarItem?) {
+    func expandedTabBarController(_ tabBarController: UITabBarController,
+                                  didSelect viewController: UIViewController,
+                                  withItem tabBarItem: UITabBarItem?) {
         // Do some logic here
     }
 }

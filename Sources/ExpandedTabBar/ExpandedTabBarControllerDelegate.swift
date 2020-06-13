@@ -43,6 +43,7 @@ extension ExpandedTabBarController: UITabBarControllerDelegate {
             let selectedVC = moreViewControllers?
                 .first(where: { $0.restorationIdentifier == "\(kMoreTabVCAtIndex)\(selectedView.tag)" }),
             let vcArray = viewControllers else { return }
+        hideMoreContainer()
         let index1 = vcArray
             .enumerated()
             .compactMap { index, vc -> Int? in
@@ -58,14 +59,12 @@ extension ExpandedTabBarController: UITabBarControllerDelegate {
             .last
 
         guard let i = index1 ?? index2 else {
-            hideMoreContainer()
             return
         }
         let tabBarItem = selectedVC.tabBarItem
         selectedVC.tabBarItem = moreViewController().tabBarItem
         viewControllers?[i] = selectedVC
         self.selectedIndex = i
-        hideMoreContainer()
         expandedDelegate?.expandedTabBarController(self, didSelect: selectedVC, withItem: tabBarItem)
     }
 }

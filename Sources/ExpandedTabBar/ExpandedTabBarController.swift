@@ -14,7 +14,7 @@ let kMoreTabVCIdentifier = "_UIExpandedTabBarMore"
 let kMoreTabVCAtIndex = "_UIExpandedTabBarMoreAt"
 let kMoreStackAtIndex = "_UIExpandedTabBarMoreStackAt"
 
-@objc public protocol ExpandedTabBarControllerDelegate: class {
+@objc public protocol ExpandedTabBarControllerDelegate: AnyObject {
     func expandedTabBarController(
         _ tabBarController: UITabBarController,
         didSelect viewController: UIViewController,
@@ -33,37 +33,26 @@ open class ExpandedTabBarController: UITabBarController {
     /// More Tab Tilte
     @IBInspectable public var moreTitle: String = "More"
     /// More Tab Icon
-    @IBInspectable public var moreIcon: UIImage? = UIImage(namedInCurrentBundle: "IC_EXPANDEDTabBAR_MORE")
+    @IBInspectable public var moreIcon: UIImage? = UIImage(namedInCurrentBundle: "expandedTabBar_more")
     /// More Tab Selected Icon. Default is nil.
     @IBInspectable public var moreSelectedIcon: UIImage?
 
-    /// Expanded Tab Bar options. Default values can see in ExpandedTabBarDefaultOptions
-    public var options: ExpandedTabBarOptions = .default {
-        didSet {
-            if let vcArray = viewControllers, !vcArray.isEmpty {
-                backgroundView.removeFromSuperview()
-                self.setup(viewControllers: vcArray)
-            }
-        }
-    }
+    /// Expanded Tab Bar options.
+    public var options: Options = OptionsFactory()
 
     // MARK: - Private Variables
     // MARK: Main Views
     internal var backgroundView = UIView()
     internal var innerContainer = UIView()
-    internal var triangleView = TriangleView()
-    internal var parentContainerView = UIView()
-    internal let scrollView = UIScrollView()
-    internal let stackView = UIStackView()
+    internal var indicatorView = UIView()
+    
+    internal var parentContainerView: ContainerView!
 
     // MARK: Constraints
-    internal var triangleRightConstraint: NSLayoutConstraint?
+    internal var indicatorRightConstraint: NSLayoutConstraint?
     internal var bgViewBottomConstraint: NSLayoutConstraint?
-    internal var triangleBottomConstraint: NSLayoutConstraint?
     internal var parentViewWidthConstraint: NSLayoutConstraint?
-
-    internal var containerBottomMargin: CGFloat = 15
-    internal var moreItemHeight: CGFloat = 35
+    internal var parentViewHeightConstraint: NSLayoutConstraint?
 
     // MARK: - Gestures
     internal var closeTapGesture: UITapGestureRecognizer!
@@ -89,8 +78,38 @@ open class ExpandedTabBarController: UITabBarController {
     override open func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         self.refreshContainerPosition(with: UIScreen.main.bounds.size)
+        self.hideMoreContainer()
     }
 
+    internal func refreshContainerPosition(with size: CGSize) {
+        let offset: CGFloat = tabBar.bounds.size.height
+        bgViewBottomConstraint?.constant = -1 * offset
+
+        let maxSize = ExpandedTabBarViews.containerMaxSize
+        let containerWidth = min(maxSize.width - 40, parentContainerView.stackView.frame.size.width)
+        let containerHeight = min(maxSize.height - 40, parentContainerView.stackView.frame.size.height)
+        
+        parentViewWidthConstraint?.constant = max(200, containerWidth)
+        parentViewHeightConstraint?.constant = containerHeight
+
+        indicatorRightConstraint?.constant = -1 * indicatorRightMargin
+    }
+
+    internal func moreViewController() -> UIViewController {
+        let vc = UIViewController()
+        vc.restorationIdentifier = kMoreTabVCIdentifier
+        vc.tabBarItem = UITabBarItem(title: moreTitle, image: moreIcon, selectedImage: moreSelectedIcon)
+        return vc
+    }
+
+    @objc internal func outsideTapped() {
+        self.hideMoreContainer()
+    }
+    
+    // MARK: - Public Methods
+    
+    /// Seyup ExpandedTabBar Orogrammatically.
+    /// - Parameter array: Array of UIVIewControllers.
     public func setup(viewControllers array: [UIViewController]) {
         guard array.count > 5 else { return }
         let itemsForShow = Array(array[0..<4])
@@ -103,53 +122,42 @@ open class ExpandedTabBarController: UITabBarController {
         self.viewControllers?.append(moreViewController())
         addMoreView()
     }
+}
 
-    internal func refreshContainerPosition(with size: CGSize) {
-        guard let itemFrame = (self.tabBar.items?.last?.value(forKey: "view") as? UIView)?.frame else { return }
-        let right = size.width - (itemFrame.origin.x + itemFrame.size.width / 2 + 10)
-
-        let offset: CGFloat = tabBar.bounds.size.height
-        self.triangleRightConstraint?.constant = -1 * right
-        self.bgViewBottomConstraint?.constant = -1 * offset
-    }
-
-    internal func moreViewController() -> UIViewController {
-        let vc = UIViewController()
-        vc.restorationIdentifier = kMoreTabVCIdentifier
-        vc.tabBarItem = UITabBarItem(title: moreTitle, image: moreIcon, selectedImage: moreSelectedIcon)
-        return vc
-    }
-
-    internal func showMoreContainer() {
-        let containerWidth = stackView.frame.size.width > ExpandedTabBarViews.calculateMoreContainerMaxSize().width ?
-            ExpandedTabBarViews.calculateMoreContainerMaxSize().width : stackView.frame.size.width
-        parentViewWidthConstraint?.constant = containerWidth < 160 ? 200 : containerWidth + 40
-        UIView.animate(withDuration: 0.3) { [weak self] in
-            guard let self = self else { return }
+// MARK: - Animartion Handling
+internal extension ExpandedTabBarController {
+    func showMoreContainer() {
+        
+        self.options.animationType.animation
+            .willShow(container: self.parentContainerView, background: self.backgroundView)
+        
+        let showAnimation = {
             self.backgroundView.alpha = 1
-            if let bottom = self.triangleBottomConstraint,
-                bottom.constant == 3000 {
-                bottom.constant = -1 * self.containerBottomMargin
-                self.backgroundView.layoutIfNeeded()
-            }
+            self.options.animationType.animation.show(container: self.parentContainerView, on: self.backgroundView)
+            self.backgroundView.layoutIfNeeded()
+        }
+        
+        UIView.animate(withDuration: options.animationType.animation.duration, animations: showAnimation) { _ in
+            self.options.animationType.animation
+                .didShow(container: self.parentContainerView, background: self.backgroundView)
         }
     }
 
-    internal func hideMoreContainer() {
-        UIView.animate(withDuration: 0.3) { [weak self] in
-            guard let self = self else { return }
+    func hideMoreContainer() {
+        
+        self.options.animationType.animation
+            .willHide(container: self.parentContainerView, background: self.backgroundView)
+        
+        let hideAnimation = {
+            self.options.animationType.animation.hide(container: self.parentContainerView, from: self.backgroundView)
             self.backgroundView.alpha = 0
-            if let bottom = self.triangleBottomConstraint,
-                bottom.constant == -1 * self.containerBottomMargin {
-                bottom.constant = 3000
-                self.backgroundView.layoutIfNeeded()
-            }
+            self.backgroundView.layoutIfNeeded()
+        }
+        
+        UIView.animate(withDuration: options.animationType.animation.duration, animations: hideAnimation) { _ in
+            self.options.animationType.animation
+                .didHide(container: self.parentContainerView, background: self.backgroundView)
         }
     }
-
-    @objc internal func outsideTapped() {
-        self.hideMoreContainer()
-    }
-
 }
 #endif

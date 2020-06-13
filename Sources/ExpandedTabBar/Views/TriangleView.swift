@@ -6,7 +6,6 @@
 //  Copyright © 2018 Yervand Saribekyan. All rights reserved.
 //
 #if !os(macOS)
-
 import UIKit
 
 internal final class TriangleView: UIView {
@@ -41,5 +40,17 @@ internal final class TriangleView: UIView {
 
     }
 
+}
+
+// MARK: - Static methods
+internal extension TriangleView {
+    class func create(rotationAngle: CGFloat = CGFloat.pi, color: UIColor = .white) -> TriangleView {
+        let triangle = TriangleView()
+        triangle.transform = CGAffineTransform(rotationAngle: rotationAngle)
+        triangle.backgroundColor = UIColor.clear
+        triangle.layer.zPosition = 2
+        triangle.color = color
+        return triangle
+    }
 }
 #endif
