@@ -5,7 +5,7 @@
 //  Created by Yervand Saribekyan on 6/12/20.
 //  Copyright © 2020 Yervand Saribekyan. All rights reserved.
 //
-
+#if !os(macOS)
 import UIKit
 
 internal extension NSLayoutConstraint {
@@ -14,3 +14,4 @@ internal extension NSLayoutConstraint {
         return self
     }
 }
+#endif

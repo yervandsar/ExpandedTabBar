@@ -33,7 +33,7 @@ open class ExpandedTabBarController: UITabBarController {
     /// More Tab Tilte
     @IBInspectable public var moreTitle: String = "More"
     /// More Tab Icon
-    @IBInspectable public var moreIcon: UIImage? = UIImage(namedInCurrentBundle: "expandedTabBar_more")
+    @IBInspectable public var moreIcon: UIImage?
     /// More Tab Selected Icon. Default is nil.
     @IBInspectable public var moreSelectedIcon: UIImage?
 
@@ -98,7 +98,11 @@ open class ExpandedTabBarController: UITabBarController {
     internal func moreViewController() -> UIViewController {
         let vc = UIViewController()
         vc.restorationIdentifier = kMoreTabVCIdentifier
-        vc.tabBarItem = UITabBarItem(title: moreTitle, image: moreIcon, selectedImage: moreSelectedIcon)
+        
+        let item = UITabBarItem(tabBarSystemItem: .more, tag: 0)
+        let icon = moreIcon ?? (item.image ?? item.selectedImage)?.withRenderingMode(.alwaysTemplate)
+        
+        vc.tabBarItem = UITabBarItem(title: moreTitle, image: icon, selectedImage: moreSelectedIcon)
         return vc
     }
 

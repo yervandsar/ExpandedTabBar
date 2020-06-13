@@ -5,7 +5,7 @@
 //  Created by Yervand Saribekyan on 6/13/20.
 //  Copyright © 2020 Yervand Saribekyan. All rights reserved.
 //
-
+#if !os(macOS)
 import UIKit
 
 public extension UIView {
@@ -45,3 +45,4 @@ internal extension UIView {
         connect(to: nil, on: attribute, to: .notAnAttribute, constant: constant)
     }
 }
+#endif

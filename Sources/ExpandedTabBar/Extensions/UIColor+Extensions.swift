@@ -5,7 +5,7 @@
 //  Created by Yervand Saribekyan on 6/11/20.
 //  Copyright © 2020 Yervand Saribekyan. All rights reserved.
 //
-
+#if !os(macOS)
 import UIKit
 
 public extension UIColor {
@@ -38,3 +38,4 @@ public extension UIColor {
         }
     }
 }
+#endif

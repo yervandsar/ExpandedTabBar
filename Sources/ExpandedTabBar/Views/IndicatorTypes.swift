@@ -5,7 +5,7 @@
 //  Created by Yervand Saribekyan on 6/13/20.
 //  Copyright © 2020 Yervand Saribekyan. All rights reserved.
 //
-
+#if !os(macOS)
 import UIKit
 
 /// IndicatorTypes declaration
@@ -46,3 +46,4 @@ public enum IndicatorTypes {
         }
     }
 }
+#endif

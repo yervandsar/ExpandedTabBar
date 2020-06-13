@@ -34,7 +34,6 @@
 		C1B6CABA20529CF800E25547 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C1B6CAB820529CF800E25547 /* Main.storyboard */; };
 		C1B6CABC20529CF800E25547 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C1B6CABB20529CF800E25547 /* Assets.xcassets */; };
 		C1B6CABF20529CF800E25547 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C1B6CABD20529CF800E25547 /* LaunchScreen.storyboard */; };
-		C1BE85D12058F6CB00B4411F /* TabBar.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C1BE85D02058F6CB00B4411F /* TabBar.xcassets */; };
 		C1BE85D72058FB8E00B4411F /* ExpandedTabBar.podspec in Resources */ = {isa = PBXBuildFile; fileRef = C1BE85D32058FB8D00B4411F /* ExpandedTabBar.podspec */; };
 		C1BE85D82058FB8E00B4411F /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = C1BE85D42058FB8D00B4411F /* LICENSE */; };
 		C1BE85DA2058FB8E00B4411F /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = C1BE85D62058FB8D00B4411F /* README.md */; };
@@ -75,7 +74,6 @@
 		C1B6CABB20529CF800E25547 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C1B6CABE20529CF800E25547 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C1B6CAC020529CF800E25547 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		C1BE85D02058F6CB00B4411F /* TabBar.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = TabBar.xcassets; sourceTree = "<group>"; };
 		C1BE85D32058FB8D00B4411F /* ExpandedTabBar.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ExpandedTabBar.podspec; sourceTree = "<group>"; };
 		C1BE85D42058FB8D00B4411F /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		C1BE85D62058FB8D00B4411F /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
@@ -133,6 +131,7 @@
 		3E8425CB249414A7000C1828 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				C1BE85F02059418D00B4411F /* UIImage+Bundle.swift */,
 				3E8425D024941A82000C1828 /* UIView+Extensions.swift */,
 				3E11E2A32491842100A0FC41 /* UIColor+Extensions.swift */,
 				3E8425CC249414C5000C1828 /* Constraints+Extensions.swift */,
@@ -155,9 +154,7 @@
 				3E8425CB249414A7000C1828 /* Extensions */,
 				3E5FF4D124934BA000678166 /* Views */,
 				3E5FF4CE249344B300678166 /* Animations */,
-				C1BE85E120591AED00B4411F /* Resources */,
 				3E11E298249176CA00A0FC41 /* Styles */,
-				C1BE85F02059418D00B4411F /* UIImage+Bundle.swift */,
 				C13C0EF72052A5D5002E9350 /* ExpandedTabBarController.swift */,
 				C10A528A2057DF1A004A731B /* ExpandedTabBarViews.swift */,
 				3E499D82224CC4F0005602D6 /* ExpandedTabBarContainers.swift */,
@@ -203,14 +200,6 @@
 				C1B6CAC020529CF800E25547 /* Info.plist */,
 			);
 			path = ExpandedTabBar;
-			sourceTree = "<group>";
-		};
-		C1BE85E120591AED00B4411F /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-				C1BE85D02058F6CB00B4411F /* TabBar.xcassets */,
-			);
-			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -278,7 +267,6 @@
 				C1BE85E92059221300B4411F /* .swift-version in Resources */,
 				C1BE85D72058FB8E00B4411F /* ExpandedTabBar.podspec in Resources */,
 				C1B6CABF20529CF800E25547 /* LaunchScreen.storyboard in Resources */,
-				C1BE85D12058F6CB00B4411F /* TabBar.xcassets in Resources */,
 				C1B6CABC20529CF800E25547 /* Assets.xcassets in Resources */,
 				C1BE85DC20590F1900B4411F /* setup1.png in Resources */,
 				C1B6CABA20529CF800E25547 /* Main.storyboard in Resources */,
