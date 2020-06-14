@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CustomViewController: ExpandedTabBarController {
+final class CustomViewController: ExpandedTabBarController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -20,7 +20,7 @@
     - *Options Customization* 
 - *[Examples](#examples)*
 - *[Support](#support)*
-- *[Let us know!](#let-us-know!)*
+- *[Let us know!](#let-us-know)*
 - *[License](#license)*
 
 ## Requirements
