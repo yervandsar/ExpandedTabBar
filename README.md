@@ -4,6 +4,7 @@
 
 **ExpandedTabBar** is a very creative designed solution for "more" items in UITabBarController. It's greate experience to have more comfortable and intuitive UI.
 
+![](demo.gif)
 #
 
 - *[Requirements](#requirements)*
@@ -107,7 +108,7 @@ public  protocol  Options: AnyObject {
     var  indicatorType: IndicatorTypes
 }
 ```
---- *Background Options*
+-- *Background Options*
 ```swift
 public protocol  BackgroundOptions: AnyObject {
     var color     : UIColor // Default .clear
@@ -115,7 +116,7 @@ public protocol  BackgroundOptions: AnyObject {
     var closeOnTap: Bool    // Default true
 }
 ```
---- *Container Options*
+-- *Container Options*
 ```swift
 public protocol  ContainerOptions: AnyObject {
     var color       : UIColor             // Default .pattern(light: .white, dark: .black)
@@ -129,7 +130,7 @@ public protocol  ContainerOptions: AnyObject {
 ```
 **NOTE:** For shadow you can see and use `ShadowOptionsDefault` class
 
---- *Container's Tab Options*
+-- *Container's Tab Options*
 ```swift
 public protocol  ContainerTabOptions: AnyObject {  
     var itemHeight     : CGFloat.           // Default 35
@@ -140,7 +141,7 @@ public protocol  ContainerTabOptions: AnyObject {
     var iconTitleSpace : CGFloat            // Default 8
 }
 ```
- --- *Anumation Types*
+ -- *Anumation Types*
 - NoneAnimations: `.none, .crossDissolve`
 - Translate: `.top, .left, .right, .bottom`
 - Zoom: `.zoomIn, .zoomOut, .zoomX, .zoomY`
@@ -149,7 +150,7 @@ public protocol  ContainerTabOptions: AnyObject {
 
 **NOTE:** Default `.top`
 
---- *Indicator Types*
+-- *Indicator Types*
 - `.none`
 - `.line` 
 - `.connectedLine` 
