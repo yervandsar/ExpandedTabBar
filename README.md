@@ -7,19 +7,21 @@
 #
 
 - *[Requirements](#requirements)*
-- *Installation Guide*
-    1. *[Cocoapods](#cocoapods)*
-    2. *[Swift Package Manager](#swift-package-manager)*
-- *How To Use*
-    - *Flow Setup*
-        - *[With Storyboard](#with-storyboard)* 
-        - *[Programmatically](#programmatically )* 
-    - *[Delegation](#delegation)*
-    - *Customization*
-        - *[More Tab](#more-tab)* 
-        - *[Light/Dark Mode Support](#light/dark-mode-support)* 
-        - *[Options Customization](#options-customization)* 
+- *[Installation Guide](#installation)*
+    - *Cocoapods*
+    - *Swift Package Manager*
+- *[Flow Setup](#flow-setup)*
+    - *With Storyboard* 
+    - *Programmatically* 
+- *[Delegation](#delegation)*
+- *[Customization](#customization)*
+    - *More Tab* 
+    - *Light/Dark Mode Support* 
+    - *Options Customization* 
 - *[Examples](#examples)*
+- *[Support](#support)*
+- *[Let us know!](#let-us-know!)*
+- *[License](#license)*
 
 ## Requirements
 
@@ -54,15 +56,13 @@ dependencies: [
 ```
  Or you can checkout [Adding Package Dependencies to Your App](https://developer.apple.com/documentation/xcode/adding_package_dependencies_to_your_app) *by **Apple***
 
-## How To Use
-
-### Flow Setup
-#### *1. With Storyboard*
+## Flow Setup
+- #### *With Storyboard*
 1.  Create  `UITabBarController`
 2.  Extend from  `ExpandedTabBarController`
 3.  Set to  `UITabBarController`  in storyboard
 
-#### *2. Programmatically*
+- #### *Programmatically*
 ```swift
 let viewControllers: [UIViewController] = [...] // Array of view controllers for UITabBarController
 let expandedTabBar = ExpandedTabBarController()
@@ -83,20 +83,20 @@ func expandedTabBarController(
 
 ## Customization
 
-#### *1. More Tab*
+- #### *More Tab*
 You can customize more tab in storyboard, or set programmatically.
 ```swift
 moreTitle        : String   // Default "More"
 moreIcon         : UIImage? // Default Image from SystemItem.More
 moreSelectedIcon : UIImage? // Default nil
 ```
-#### *2. Dark Mode Support*
+- #### *Dark Mode Support*
 **ExpandedTabBar** is fully ***Light/Dark*** mode supported and for setting any `UIColor` or `CGColor` you can use.
 ```swift
 let color: UIColor/CGColor = .pattern(light: UIColor, dark: UIColor)
 ```
 **NOTE:** If device OS version not supports dark mode, it will take light color by default.
-#### *3. Options Customization*
+- #### *Options Customization*
 **ExpandedTabBar** options conforms to **Options** protocol.
 
 ```swift
@@ -107,7 +107,7 @@ public  protocol  Options: AnyObject {
     var  indicatorType: IndicatorTypes
 }
 ```
- - Background Options
+--- *Background Options*
 ```swift
 public protocol  BackgroundOptions: AnyObject {
     var color     : UIColor // Default .clear
@@ -115,7 +115,7 @@ public protocol  BackgroundOptions: AnyObject {
     var closeOnTap: Bool    // Default true
 }
 ```
- - Container Options
+--- *Container Options*
 ```swift
 public protocol  ContainerOptions: AnyObject {
     var color       : UIColor             // Default .pattern(light: .white, dark: .black)
@@ -129,7 +129,7 @@ public protocol  ContainerOptions: AnyObject {
 ```
 **NOTE:** For shadow you can see and use `ShadowOptionsDefault` class
 
- - Container's Tab Options
+--- *Container's Tab Options*
 ```swift
 public protocol  ContainerTabOptions: AnyObject {  
     var itemHeight     : CGFloat.           // Default 35
@@ -140,21 +140,21 @@ public protocol  ContainerTabOptions: AnyObject {
     var iconTitleSpace : CGFloat            // Default 8
 }
 ```
- - Anumation Types
-     - NoneAnimations: `.none, .crossDissolve`
-     - Translate: `.top, .left, .right, .bottom`
-     - Zoom: `.zoomIn, .zoomOut, .zoomX, .zoomY`
-     - Rotate: `.rotatePositive, .rotateNegarive, .rotate(angle: CGFloat)`
-     - Custom: `.custom(AnimationProtocol)`,  You can use TransformAnimation for creating custom animatios
+ --- *Anumation Types*
+- NoneAnimations: `.none, .crossDissolve`
+- Translate: `.top, .left, .right, .bottom`
+- Zoom: `.zoomIn, .zoomOut, .zoomX, .zoomY`
+- Rotate: `.rotatePositive, .rotateNegarive, .rotate(angle: CGFloat)`
+- Custom: `.custom(AnimationProtocol)`,  You can use TransformAnimation for creating custom animatios
 
 **NOTE:** Default `.top`
 
-- Indicator Types
-    - `.none`
-    - `.line` 
-    - `.connectedLine` 
-    - `.triangle` 
-    - `.square`
+--- *Indicator Types*
+- `.none`
+- `.line` 
+- `.connectedLine` 
+- `.triangle` 
+- `.square`
 
 **NOTE:** Default `.triangle`
 
@@ -199,7 +199,7 @@ We’d be really happy if you sent us links to your projects where you use our c
 
 The MIT License (MIT)
 
-Copyright (c) 2018 Yervand
+Copyright (c) 2018 Yervand Saribekyan
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
