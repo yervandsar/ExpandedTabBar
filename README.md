@@ -19,6 +19,8 @@
     - *More Tab* 
     - *Light/Dark Mode Support* 
     - *Options Customization* 
+- *[Animation Types](#animation-types)*
+- *[Indicator Types](#Indicator-types)*
 - *[Examples](#examples)*
 - *[Support](#support)*
 - *[Let us know!](#let-us-know)*
@@ -141,29 +143,26 @@ public protocol  ContainerTabOptions: AnyObject {
     var iconTitleSpace : CGFloat            // Default 8
 }
 ```
- -- *Animation Types*
+## *Animation Types*
  
  |  NoneAnimations | Translate  | Zoom  |  Rotate |
  :--------------------:|:-----------:|:--------:|:--------:|
- |`.none` |`.top`(Default)|`.zoomIn`|`.rotatePositive`|
+ |`.none` |`.top` **Default**|`.zoomIn`|`.rotatePositive`|
  |![](Resources/none.gif)|![](Resources/top.gif)|![](Resources/zoomIn.gif)|![](Resources/rotatePositive.gif)|
  |`.crossDissolve` |`.bottom`|`.zoomOut`|`.rotateNegative`|
  |![](Resources/crossDissolve.gif)|![](Resources/bottom.gif)|![](Resources/zoomOut.gif)|![](Resources/rotateNegative.gif)|
- | |`.left`|`.zoomX`| |
- | |![](Resources/left.gif)|![](Resources/zoomX.gif)|`.rotate(angle: CGFloat)`|
+ | |`.left`|`.zoomX`|`.rotate(angle: .pi/4)`|
+ | |![](Resources/left.gif)|![](Resources/zoomX.gif)|![](Resources/rotate.gif)|
  |  |`.right`|`.zoomY`| |
  | |![](Resources/right.gif)|![](Resources/zoomY.gif)| |
  
  **NOTE:** You can create your own animation `.custom(AnimationProtocol)`. You can use TransformAnimation for creating custom animations
 
--- *Indicator Types*
-- `.none`
-- `.line` 
-- `.connectedLine` 
-- `.triangle` 
-- `.square`
+## *Indicator Types*
 
-**NOTE:** Default `.triangle`
+| `.none` | `.line`  | `.connectedLine`  |  `.triangle` **Default** | `.square` |
+:---------:|:---------:|:-----------------------:|:---------------:|:-----------:|
+|![](Resources/none.png)|![](Resources/line.png)|![](Resources/connectedLine.png)|![](Resources/triangle.png)|![](Resources/square.png)|
 
 ## Examples
 ```swift

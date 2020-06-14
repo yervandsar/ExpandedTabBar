@@ -17,7 +17,7 @@ public enum IndicatorTypes {
     case square
     
     /// Default is .triangle
-    public static var `default`: IndicatorTypes { .triangle }
+    public static var `default`: IndicatorTypes { .square }
     
     public func view(color: UIColor = .pattern(light: .white, dark: .black)) -> UIView {
         switch self {
