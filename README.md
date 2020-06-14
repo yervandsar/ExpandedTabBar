@@ -4,7 +4,7 @@
 
 **ExpandedTabBar** is a very creative designed solution for "more" items in UITabBarController. It's greate experience to have more comfortable and intuitive UI.
 
-![](demo.gif)
+![](Resources/demo.gif)
 #
 
 - *[Requirements](#requirements)*
@@ -142,6 +142,12 @@ public protocol  ContainerTabOptions: AnyObject {
 }
 ```
  -- *Anumation Types*
+ |  NoneAnimations | Translate  | Zoom  |  Rotate |
+ |---|---|---|---|---|
+ | `.none` |   |   |   |   |
+ | ![](Resources/none.gif)  |   |   |   |   |
+ | `.crossDissolve`  |   |   |   |   |
+ | ![](Resources/crossDissolve.gif)  |   |   |   |   |
 - NoneAnimations: `.none, .crossDissolve`
 - Translate: `.top, .left, .right, .bottom`
 - Zoom: `.zoomIn, .zoomOut, .zoomX, .zoomY`
