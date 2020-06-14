@@ -25,7 +25,7 @@ public protocol ShadowOptions: AnyObject {
 }
 
 /// ShadowOptions declatation.
-public final class ShadowOptionsFactory: ShadowOptions {
+public final class ShadowOptionsDefault: ShadowOptions {
     
     /// Color.
     public var color: UIColor = .defaultShadowColor

@@ -19,7 +19,7 @@ final class CustomViewController: ExpandedTabBarController {
     
     private func initOptions() {
         let container = options.container
-        container.shadow = ShadowOptionsFactory()
+        container.shadow = ShadowOptionsDefault()
         container.tabSpace = 15
         container.tab.iconTitleSpace = 15
     }
