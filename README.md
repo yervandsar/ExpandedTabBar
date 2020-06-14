@@ -151,7 +151,7 @@ public protocol  ContainerTabOptions: AnyObject {
  |![](Resources/none.gif)|![](Resources/top.gif)|![](Resources/zoomIn.gif)|![](Resources/rotatePositive.gif)|
  |`.crossDissolve` |`.bottom`|`.zoomOut`|`.rotateNegative`|
  |![](Resources/crossDissolve.gif)|![](Resources/bottom.gif)|![](Resources/zoomOut.gif)|![](Resources/rotateNegative.gif)|
- | |`.left`|`.zoomX`|`.rotate(angle: .pi/4)`|
+ | |`.left`|`.zoomX`|`.rotate(angle: .pi/6)`|
  | |![](Resources/left.gif)|![](Resources/zoomX.gif)|![](Resources/rotate.gif)|
  |  |`.right`|`.zoomY`| |
  | |![](Resources/right.gif)|![](Resources/zoomY.gif)| |
