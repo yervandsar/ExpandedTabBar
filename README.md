@@ -141,18 +141,24 @@ public protocol  ContainerTabOptions: AnyObject {
     var iconTitleSpace : CGFloat            // Default 8
 }
 ```
- -- *Anumation Types*
+ -- *Animation Types*
+ 
  |  NoneAnimations | Translate  | Zoom  |  Rotate |
- |---|---|---|---|---|
- | `.none` |   |   |   |   |
- | ![](Resources/none.gif)  |   |   |   |   |
- | `.crossDissolve`  |   |   |   |   |
- | ![](Resources/crossDissolve.gif)  |   |   |   |   |
+ :--------------------:|:-----------:|:--------:|:--------:|
+ |`.none` |`.top`|`.zoomIn`|`.rotatePositive`|
+ |![](Resources/none.gif)|![](Resources/top.gif)|![](Resources/zoomIn.gif)|![](Resources/rotatePositive.gif)|
+ |`.crossDissolve` |`.bottom`|`.zoomOut`|`.rotateNegative`|
+ |![](Resources/crossDissolve.gif)|![](Resources/bottom.gif)|![](Resources/zoomOut.gif)|![](Resources/rotateNegative.gif)|
+ | |`.left`|`.zoomX`|`.rotate(angle: CGFloat)`|
+ | |![](Resources/left.gif)|![](Resources/zoomX.gif)| |
+ |  |`.right`|`.zoomY`| |
+ | |![](Resources/right.gif)|![](Resources/zoomY.gif)| |
+ 
 - NoneAnimations: `.none, .crossDissolve`
 - Translate: `.top, .left, .right, .bottom`
 - Zoom: `.zoomIn, .zoomOut, .zoomX, .zoomY`
 - Rotate: `.rotatePositive, .rotateNegarive, .rotate(angle: CGFloat)`
-- Custom: `.custom(AnimationProtocol)`,  You can use TransformAnimation for creating custom animatios
+- Custom: `.custom(AnimationProtocol)`,  You can use TransformAnimation for creating custom animations
 
 **NOTE:** Default `.top`
 
