@@ -99,7 +99,7 @@ moreSelectedIcon : UIImage? // Default nil
 let color: UIColor/CGColor = .pattern(light: UIColor, dark: UIColor)
 ```
 **NOTE:** If device OS version not supports dark mode, it will take light color by default.
-- ### *Options Customization*
+- #### *Options Customization*
 **ExpandedTabBar** options conforms to **Options** protocol.
 
 ```swift
@@ -134,7 +134,7 @@ public protocol  ContainerOptions {
 
 #### *Container's Tab Options*
 ```swift
-public protocol  ContainerTabOptions: AnyObject {  
+public protocol  ContainerTabOptions {  
     var itemHeight     : CGFloat.           // Default 35
     var titleFont      : UIFont             // Default .systemFont(ofSize: 16)
     var titleColor     : UIColor            // Default .pattern(light: .black, dark: .white)
