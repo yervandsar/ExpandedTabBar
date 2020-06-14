@@ -99,28 +99,28 @@ moreSelectedIcon : UIImage? // Default nil
 let color: UIColor/CGColor = .pattern(light: UIColor, dark: UIColor)
 ```
 **NOTE:** If device OS version not supports dark mode, it will take light color by default.
-- #### *Options Customization*
+- ### *Options Customization*
 **ExpandedTabBar** options conforms to **Options** protocol.
 
 ```swift
-public  protocol  Options: AnyObject {
+public  protocol  Options {
     var  background   : BackgroundOptions
     var  container    : ContainerOptions
     var  animationType: AnimationType
     var  indicatorType: IndicatorTypes
 }
 ```
--- *Background Options*
+#### *Background Options*
 ```swift
-public protocol  BackgroundOptions: AnyObject {
+public protocol  BackgroundOptions {
     var color     : UIColor // Default .clear
     var alpha     : CGFloat // Default 0.3
     var closeOnTap: Bool    // Default true
 }
 ```
--- *Container Options*
+#### *Container Options*
 ```swift
-public protocol  ContainerOptions: AnyObject {
+public protocol  ContainerOptions {
     var color       : UIColor             // Default .pattern(light: .white, dark: .black)
     var alpha       : CGFloat             // Default 1.0
     var cornerRadius: CGFloat             // Default 10
@@ -130,9 +130,9 @@ public protocol  ContainerOptions: AnyObject {
     var shadow      : ShadowOptions?      // Default nil
 }
 ```
-**NOTE:** For shadow you can see and use `ShadowOptionsDefault` class
+**NOTE:** For shadow you can see and use `ShadowDefaultOptions` class
 
--- *Container's Tab Options*
+#### *Container's Tab Options*
 ```swift
 public protocol  ContainerTabOptions: AnyObject {  
     var itemHeight     : CGFloat.           // Default 35
@@ -166,20 +166,32 @@ public protocol  ContainerTabOptions: AnyObject {
 
 ## Examples
 ```swift
-final class  CustomViewController: ExpandedTabBarController {
+final class CustomViewController: ExpandedTabBarController {
 
-    override func  viewDidLoad() {
+    override func viewDidLoad() {
         super.viewDidLoad()
         expandedDelegate = self
-        initOptions()
+        expandedTabBarOptions = customOptions
+        
     }
-
-    private func initOptions() {
-        let container = options.container
-        container.shadow = ShadowOptionsDefault()
-        container.tabSpace = 15
-        container.tab.iconTitleSpace = 15
+    
+    private var customOptions: Options {
+        var options = ExpandedTabBarOptions()
+        
+        options.animationType = .custom(customAnimation)
+        
+        options.container.shadow = ShadowDefaultOptions()
+        options.container.tabSpace = 15
+        options.container.tab.iconTitleSpace = 15
+        
+        return options
     }
+    
+    private var customAnimation: AnimationProtocol {
+        let transform = CGAffineTransform(scaleX: 0.1, y: 0.1).rotated(by: .pi)
+        return TransformAnimation(transform: transform)
+    }
+    
 }
 
 extension  CustomViewController: ExpandedTabBarControllerDelegate {

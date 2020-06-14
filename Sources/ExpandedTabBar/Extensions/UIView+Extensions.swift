@@ -9,6 +9,13 @@
 import UIKit
 
 public extension UIView {
+    
+    /// Get constrains on attributes with second view.
+    /// - Parameters:
+    ///   - attribute: First attribute.
+    ///   - attribute2: Second attribute.
+    ///   - view: Second view.
+    /// - Returns: Constraint if exist.
     func constraint(_ attribute: NSLayoutConstraint.Attribute,
                     attribute2: NSLayoutConstraint.Attribute? = nil,
                     with view: UIView? = nil) -> NSLayoutConstraint? {
@@ -20,6 +27,19 @@ public extension UIView {
                 $0.secondAttribute == (attribute2 ?? attribute)
         }
 
+    }
+    
+    /// Set shadow on view with ShadowOptions
+    /// - Parameter options: ShadowOptions
+    func setShadow(_ options: ShadowOptions) {
+        layer.shadowColor = options.color.cgColor
+        layer.shadowOpacity = options.opacity
+        layer.shadowOffset = options.offset
+        layer.shadowRadius = options.radius
+        layer.shouldRasterize = true
+
+        layer.masksToBounds = false
+        layer.rasterizationScale = UIScreen.main.scale
     }
 }
 

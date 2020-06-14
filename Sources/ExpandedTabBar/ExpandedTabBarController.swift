@@ -38,7 +38,11 @@ open class ExpandedTabBarController: UITabBarController {
     @IBInspectable public var moreSelectedIcon: UIImage?
 
     /// Expanded Tab Bar options.
-    public var options: Options = OptionsFactory()
+    public var expandedTabBarOptions: Options?
+    
+    internal var options: Options {
+        expandedTabBarOptions ?? ExpandedTabBarOptions()
+    }
 
     // MARK: - Private Variables
     // MARK: Main Views

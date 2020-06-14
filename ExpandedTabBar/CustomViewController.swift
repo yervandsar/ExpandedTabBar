@@ -13,15 +13,25 @@ final class CustomViewController: ExpandedTabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
         expandedDelegate = self
-        initOptions()
+        expandedTabBarOptions = customOptions
         
     }
     
-    private func initOptions() {
-        let container = options.container
-        container.shadow = ShadowOptionsDefault()
-        container.tabSpace = 15
-        container.tab.iconTitleSpace = 15
+    private var customOptions: Options {
+        var options = ExpandedTabBarOptions()
+        
+        options.animationType = .custom(customAnimation)
+        
+        options.container.shadow = ShadowDefaultOptions()
+        options.container.tabSpace = 15
+        options.container.tab.iconTitleSpace = 15
+        
+        return options
+    }
+    
+    private var customAnimation: AnimationProtocol {
+        let transform = CGAffineTransform(scaleX: 0.1, y: 0.1).rotated(by: .pi)
+        return TransformAnimation(transform: transform)
     }
     
 }

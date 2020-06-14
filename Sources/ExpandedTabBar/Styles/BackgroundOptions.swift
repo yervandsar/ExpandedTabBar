@@ -22,7 +22,7 @@ public protocol BackgroundOptions: AnyObject {
 }
 
 /// BackgroundOptions declaration
-public final class BackgroundOptionsFactory: BackgroundOptions {
+public final class BackgroundDefaultOptions: BackgroundOptions {
     
     /// Background color.
     public var color: UIColor = .clear

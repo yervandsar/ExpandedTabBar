@@ -10,62 +10,74 @@
 import UIKit
 
 extension ExpandedTabBarController: UITabBarControllerDelegate {
-    public func tabBarController(_ tabBarController: UITabBarController, shouldSelect viewController: UIViewController) -> Bool {
-        let isInitialMore = viewController.restorationIdentifier == kMoreTabVCIdentifier
-        let isSelectedMore = viewController.restorationIdentifier?.hasPrefix(kMoreTabVCAtIndex) ?? false
-        if isInitialMore {
+    public func tabBarController(_ tabBarController: UITabBarController,
+                                 shouldSelect viewController: UIViewController) -> Bool {
+        
+        if viewController.isInitialMore {
             backgroundView.alpha != 0 ? deselectMore() : showMoreContainer()
-        } else if isSelectedMore {
+        } else if viewController.isSelectedMore {
             backgroundView.alpha != 0 ? hideMoreContainer() : showMoreContainer()
         }
-        return !isInitialMore && !isSelectedMore
+        
+        return !viewController.isInitialMore && !viewController.isSelectedMore
     }
 
-    public func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
+    public func tabBarController(_ tabBarController: UITabBarController,
+                                 didSelect viewController: UIViewController) {
         deselectMore()
+    }
+}
+
+internal extension ExpandedTabBarController {
+
+    @objc func itemTapped(_ sender: UITapGestureRecognizer) {
+        guard let selectedViewController = moreViewControllers.selectedViewController(from: sender) else { return }
+        
+        hideMoreContainer()
+
+        guard let index = viewControllers.initialMoreIndex ?? viewControllers.selectedMoreIndex else { return }
+        
+        let tabBarItem = selectedViewController.tabBarItem
+        selectedViewController.tabBarItem = moreViewController().tabBarItem
+        
+        viewControllers?[index] = selectedViewController
+        self.selectedIndex = index
+        
+        expandedDelegate?.expandedTabBarController(self, didSelect: selectedViewController, withItem: tabBarItem)
     }
 
     private func deselectMore() {
         hideMoreContainer()
-        guard let vcArray = viewControllers else { return }
-        let index = vcArray
-            .enumerated()
-            .compactMap { index, vc -> Int? in
-                return (vc.restorationIdentifier?.hasPrefix(kMoreTabVCAtIndex) ?? false) ? index : nil
-            }
-            .last
-        guard let i = index else { return }
-        viewControllers?[i] = moreViewController()
+        viewControllers.replaceSelected(with: moreViewController())
+    }
+}
+
+private extension UIViewController {
+    var isInitialMore: Bool {
+        restorationIdentifier == kMoreTabVCIdentifier
+    }
+    var isSelectedMore: Bool {
+        restorationIdentifier?.hasPrefix(kMoreTabVCAtIndex) ?? false
+    }
+}
+
+private extension Optional where Wrapped == [UIViewController] {
+    var initialMoreIndex: Int? {
+        self?.enumerated().filter { $1.isInitialMore }.last?.offset
     }
 
-    @objc internal func itemTapped(_ sender: UITapGestureRecognizer) {
-        guard let selectedView = sender.view as? UIStackView,
-            let selectedVC = moreViewControllers?
-                .first(where: { $0.restorationIdentifier == "\(kMoreTabVCAtIndex)\(selectedView.tag)" }),
-            let vcArray = viewControllers else { return }
-        hideMoreContainer()
-        let index1 = vcArray
-            .enumerated()
-            .compactMap { index, vc -> Int? in
-                return vc.restorationIdentifier == kMoreTabVCIdentifier ? index : nil
-            }
-            .last
-
-        let index2 = vcArray
-            .enumerated()
-            .compactMap { index, vc -> Int? in
-                return (vc.restorationIdentifier?.hasPrefix(kMoreTabVCAtIndex) ?? false) ? index : nil
-            }
-            .last
-
-        guard let i = index1 ?? index2 else {
-            return
-        }
-        let tabBarItem = selectedVC.tabBarItem
-        selectedVC.tabBarItem = moreViewController().tabBarItem
-        viewControllers?[i] = selectedVC
-        self.selectedIndex = i
-        expandedDelegate?.expandedTabBarController(self, didSelect: selectedVC, withItem: tabBarItem)
+    var selectedMoreIndex: Int? {
+        self?.enumerated().filter { $1.isSelectedMore }.last?.offset
+    }
+    
+    func selectedViewController(from gesture: UITapGestureRecognizer) -> UIViewController? {
+        guard let selectedView = gesture.view as? UIStackView else { return nil }
+        return self?.first(where: { $0.restorationIdentifier == "\(kMoreTabVCAtIndex)\(selectedView.tag)" })
+    }
+    
+    mutating func replaceSelected(with viewController: UIViewController) {
+        guard let index = selectedMoreIndex else { return }
+        self?[index] = viewController
     }
 }
 #endif

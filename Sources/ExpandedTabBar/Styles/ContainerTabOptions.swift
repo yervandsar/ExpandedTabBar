@@ -9,7 +9,7 @@
 import UIKit
 
 /// ContainerTabOptions protocol declaration
-public protocol ContainerTabOptions: AnyObject {
+public protocol ContainerTabOptions {
     
     /// Item height.
     var itemHeight: CGFloat { get set }
@@ -32,7 +32,7 @@ public protocol ContainerTabOptions: AnyObject {
 }
 
 /// ContainerTabOptions declaration
-public final class ContainerTabBarOptionsFactory: ContainerTabOptions {
+public struct ContainerTabDefaultOptions: ContainerTabOptions {
     
     /// Item height.
     public var itemHeight: CGFloat = 35

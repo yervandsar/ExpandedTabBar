@@ -11,7 +11,7 @@ import UIKit
 public final class ContainerView: UIView {
     let tabBar: UITabBar
     
-    var options: ContainerOptions = ContainerOptionsFactory()
+    var options: ContainerOptions = ContainerDefaultOptions()
 
     var scrollView = UIScrollView()
     var stackView = UIStackView()

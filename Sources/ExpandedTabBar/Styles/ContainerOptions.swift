@@ -9,7 +9,7 @@
 import UIKit
 
 /// ContainerOptions protocol declaration.
-public protocol ContainerOptions: AnyObject {
+public protocol ContainerOptions {
     
     /// Background color.
     var color: UIColor { get set }
@@ -31,14 +31,11 @@ public protocol ContainerOptions: AnyObject {
     
     /// Shadow options
     var shadow: ShadowOptions? { get set }
-    
-    /// Present animation style.
-    var animation: AnimationType { get set }
 
 }
 
 /// ContainerOptionsFactory declaration.
-public final class ContainerOptionsFactory: ContainerOptions {
+public struct ContainerDefaultOptions: ContainerOptions {
     
     /// Background color.
     public var color: UIColor = .defaultBackgroundColor
@@ -56,13 +53,10 @@ public final class ContainerOptionsFactory: ContainerOptions {
     public var tabSpace: CGFloat = 8
     
     /// Tab options
-    public var tab: ContainerTabOptions = ContainerTabBarOptionsFactory()
+    public var tab: ContainerTabOptions = ContainerTabDefaultOptions()
     
     /// Shadow options
     public var shadow: ShadowOptions?
-    
-    /// Present animation style.
-    public var animation: AnimationType = .default
     
     public init() { }
 

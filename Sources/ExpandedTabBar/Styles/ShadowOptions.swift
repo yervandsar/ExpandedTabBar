@@ -9,7 +9,7 @@
 import UIKit
 
 /// ShadowOptions protocol declatation.
-public protocol ShadowOptions: AnyObject {
+public protocol ShadowOptions {
     
     /// Color.
     var color: UIColor { get set }
@@ -25,7 +25,7 @@ public protocol ShadowOptions: AnyObject {
 }
 
 /// ShadowOptions declatation.
-public final class ShadowOptionsDefault: ShadowOptions {
+public struct ShadowDefaultOptions: ShadowOptions {
     
     /// Color.
     public var color: UIColor = .defaultShadowColor
@@ -41,21 +41,5 @@ public final class ShadowOptionsDefault: ShadowOptions {
     
     public init() { }
 
-}
-
-public extension UIView {
-    
-    /// Set shadow on view with ShadowOptions
-    /// - Parameter options: ShadowOptions
-    func setShadow(_ options: ShadowOptions) {
-        layer.shadowColor = options.color.cgColor
-        layer.shadowOpacity = options.opacity
-        layer.shadowOffset = options.offset
-        layer.shadowRadius = options.radius
-        layer.shouldRasterize = true
-
-        layer.masksToBounds = false
-        layer.rasterizationScale = UIScreen.main.scale
-    }
 }
 #endif

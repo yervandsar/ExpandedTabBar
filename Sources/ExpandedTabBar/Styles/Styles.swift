@@ -9,7 +9,7 @@
 import UIKit
 
 /// Options protocol declaration.
-public protocol Options: AnyObject {
+public protocol Options {
     
     /// IndicatorType
     var indicatorType: IndicatorTypes { get set }
@@ -24,8 +24,8 @@ public protocol Options: AnyObject {
     var background: BackgroundOptions { get set }
 }
 
-/// OptionsFactory declaration.
-public final class OptionsFactory: Options {
+/// ExpandedTabBarOptions declaration.
+public struct ExpandedTabBarOptions: Options {
     
     /// IndicatorType
     public var indicatorType: IndicatorTypes = .default
@@ -34,10 +34,10 @@ public final class OptionsFactory: Options {
     public var animationType: AnimationType = .default
     
     /// More container options
-    public var container: ContainerOptions = ContainerOptionsFactory()
+    public var container: ContainerOptions = ContainerDefaultOptions()
     
     /// More container's background options
-    public var background: BackgroundOptions = BackgroundOptionsFactory()
+    public var background: BackgroundOptions = BackgroundDefaultOptions()
     
     public init() { }
     
