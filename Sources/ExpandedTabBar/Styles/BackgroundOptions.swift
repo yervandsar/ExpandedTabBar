@@ -9,7 +9,7 @@
 import UIKit
 
 /// BackgroundOptions protocol declaration
-public protocol BackgroundOptions: AnyObject {
+public protocol BackgroundOptions {
     
     /// Background color.
     var color: UIColor { get set }
@@ -22,7 +22,7 @@ public protocol BackgroundOptions: AnyObject {
 }
 
 /// BackgroundOptions declaration
-public final class BackgroundDefaultOptions: BackgroundOptions {
+public struct BackgroundDefaultOptions: BackgroundOptions {
     
     /// Background color.
     public var color: UIColor = .clear
