@@ -20,6 +20,9 @@ public protocol ContainerOptions {
     /// Corner radius.
     var cornerRadius: CGFloat { get set }
     
+    /// Corners to round
+    var roundedCorners: UIRectCorner { get set }
+    
     /// Space between TabBar and container
     var bottomMargin: CGFloat { get set }
     
@@ -45,6 +48,9 @@ public struct ContainerDefaultOptions: ContainerOptions {
     
     /// Corner radius.
     public var cornerRadius: CGFloat = 10
+    
+    /// Corners to round
+    public var roundedCorners: UIRectCorner = .allCorners
     
     /// Space between TabBar and container
     public var bottomMargin: CGFloat = 15

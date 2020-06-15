@@ -86,6 +86,8 @@ internal extension ExpandedTabBarController {
     func addContainerView(with items: [UIStackView]) {
 
         parentContainerView = ContainerView.create(for: tabBar)
+        parentContainerView.roundCorners(corners: options.container.roundedCorners,
+                                         radius: options.container.cornerRadius)
         parentContainerView.setOptions(options.container)
         parentContainerView.indicatorView = indicatorView
         

@@ -41,6 +41,21 @@ public extension UIView {
         layer.masksToBounds = false
         layer.rasterizationScale = UIScreen.main.scale
     }
+    
+    /// Set given radius to corners
+    /// - Parameters:
+    ///   - corners: Corners for rounding.
+    ///   - radius: Rounding radius.
+    func roundCorners(corners: UIRectCorner = .allCorners, radius: CGFloat) {
+        self.clipsToBounds = true
+        self.layer.cornerRadius = radius
+        var masked = CACornerMask()
+        if corners.contains(.topLeft) { masked.insert(.layerMinXMinYCorner) }
+        if corners.contains(.topRight) { masked.insert(.layerMaxXMinYCorner) }
+        if corners.contains(.bottomLeft) { masked.insert(.layerMinXMaxYCorner) }
+        if corners.contains(.bottomRight) { masked.insert(.layerMaxXMaxYCorner) }
+        self.layer.maskedCorners = masked
+    }
 }
 
 internal extension UIView {

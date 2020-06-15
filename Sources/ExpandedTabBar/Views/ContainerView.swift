@@ -50,8 +50,6 @@ internal extension ContainerView {
     class func create(for tabBar: UITabBar) -> ContainerView {
         let view = ContainerView(for: tabBar)
         view.backgroundColor = .white
-        view.layer.cornerRadius = 8
-        view.layer.masksToBounds = true
         return view
     }
 }

@@ -38,7 +38,7 @@
 
 *These are currently the supported intllation options:*
   
-### 1. [CocoaPods](https://cocoapods.org/)
+### [CocoaPods](https://cocoapods.org/)
 To integrate **ExpandedTabBar** into your Xcode project using CocoaPods, specify it in your `Podfile`:
 ```ruby
 use_frameworks!
@@ -47,7 +47,7 @@ target '<Your Target Name>' do
     pod 'ExpandedTabBar'
 end
 ```
-### 2. [Swift Package Manager](https://swift.org/package-manager/)
+### [Swift Package Manager](https://swift.org/package-manager/)
 
 The  **Swift Package Manager** is a tool for automating the distribution of Swift code and is integrated into the  `swift`  compiler. It is in early development, but appstore-card-transition does support its use on supported platforms.
 
@@ -121,13 +121,14 @@ public protocol  BackgroundOptions {
 #### *Container Options*
 ```swift
 public protocol  ContainerOptions {
-    var color       : UIColor             // Default .pattern(light: .white, dark: .black)
-    var alpha       : CGFloat             // Default 1.0
-    var cornerRadius: CGFloat             // Default 10
-    var bottomMargin: CGFloat             // Default 15
-    var tabSpace.   : CGFloat             // Default 8
-    var tab         : ContainerTabOptions
-    var shadow      : ShadowOptions?      // Default nil
+    var color         : UIColor             // Default .pattern(light: .white, dark: .black)
+    var alpha         : CGFloat             // Default 1.0
+    var cornerRadius  : CGFloat             // Default 10
+    var roundedCorners: UIRectCorner        // Default .allCorners
+    var bottomMargin  : CGFloat             // Default 15
+    var tabSpace      : CGFloat             // Default 8
+    var tab           : ContainerTabOptions
+    var shadow        : ShadowOptions?      // Default nil
 }
 ```
 **NOTE:** For shadow you can see and use `ShadowDefaultOptions` class
@@ -178,7 +179,11 @@ final class CustomViewController: ExpandedTabBarController {
     private var customOptions: Options {
         var options = ExpandedTabBarOptions()
         
+        options.indicatorType = .connectedLine
         options.animationType = .custom(customAnimation)
+        
+        options.container.roundedCorners = [.topLeft, .topRight, .bottomLeft]
+        options.container.cornerRadius = 20
         
         options.container.shadow = ShadowDefaultOptions()
         options.container.tabSpace = 15

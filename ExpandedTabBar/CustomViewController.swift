@@ -20,7 +20,11 @@ final class CustomViewController: ExpandedTabBarController {
     private var customOptions: Options {
         var options = ExpandedTabBarOptions()
         
+        options.indicatorType = .connectedLine
         options.animationType = .custom(customAnimation)
+        
+        options.container.roundedCorners = [.topLeft, .topRight, .bottomLeft]
+        options.container.cornerRadius = 20
         
         options.container.shadow = ShadowDefaultOptions()
         options.container.tabSpace = 15
