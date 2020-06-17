@@ -161,9 +161,9 @@ public protocol  ContainerTabOptions {
 
 ## *Indicator Types*
 
-| `.none` | `.line`  | `.connectedLine`  |  `.triangle` **Default** | `.square` |
-:---------:|:---------:|:-----------------------:|:---------------:|:-----------:|
-|![](Resources/none.png)|![](Resources/line.png)|![](Resources/connectedLine.png)|![](Resources/triangle.png)|![](Resources/square.png)|
+| `.none` | `.connectedLine`  |  `.triangle` **Default** |
+:---------:|:-----------------------:|:----------------------------:|
+|![](Resources/none.png)|![](Resources/connectedLine.png)|![](Resources/triangle.png)|
 
 ## Examples
 ```swift

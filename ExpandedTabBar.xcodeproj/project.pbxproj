@@ -36,11 +36,9 @@
 		3E827476249658020049DE81 /* rotatePositive.gif in Resources */ = {isa = PBXBuildFile; fileRef = 3E82746A249658020049DE81 /* rotatePositive.gif */; };
 		3E827477249658020049DE81 /* bottom.gif in Resources */ = {isa = PBXBuildFile; fileRef = 3E82746B249658020049DE81 /* bottom.gif */; };
 		3E827479249675080049DE81 /* rotate.gif in Resources */ = {isa = PBXBuildFile; fileRef = 3E827478249675080049DE81 /* rotate.gif */; };
-		3E82747F2496780E0049DE81 /* square.png in Resources */ = {isa = PBXBuildFile; fileRef = 3E82747A2496780E0049DE81 /* square.png */; };
 		3E8274802496780E0049DE81 /* triangle.png in Resources */ = {isa = PBXBuildFile; fileRef = 3E82747B2496780E0049DE81 /* triangle.png */; };
 		3E8274812496780E0049DE81 /* connectedLine.png in Resources */ = {isa = PBXBuildFile; fileRef = 3E82747C2496780E0049DE81 /* connectedLine.png */; };
 		3E8274822496780E0049DE81 /* none.png in Resources */ = {isa = PBXBuildFile; fileRef = 3E82747D2496780E0049DE81 /* none.png */; };
-		3E8274832496780E0049DE81 /* line.png in Resources */ = {isa = PBXBuildFile; fileRef = 3E82747E2496780E0049DE81 /* line.png */; };
 		3E8425C824940B8B000C1828 /* NoneAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E8425C724940B8B000C1828 /* NoneAnimation.swift */; };
 		3E8425CD249414C5000C1828 /* Constraints+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E8425CC249414C5000C1828 /* Constraints+Extensions.swift */; };
 		3E8425D124941A82000C1828 /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E8425D024941A82000C1828 /* UIView+Extensions.swift */; };
@@ -89,11 +87,9 @@
 		3E82746A249658020049DE81 /* rotatePositive.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = rotatePositive.gif; sourceTree = "<group>"; };
 		3E82746B249658020049DE81 /* bottom.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = bottom.gif; sourceTree = "<group>"; };
 		3E827478249675080049DE81 /* rotate.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = rotate.gif; sourceTree = "<group>"; };
-		3E82747A2496780E0049DE81 /* square.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = square.png; sourceTree = "<group>"; };
 		3E82747B2496780E0049DE81 /* triangle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = triangle.png; sourceTree = "<group>"; };
 		3E82747C2496780E0049DE81 /* connectedLine.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = connectedLine.png; sourceTree = "<group>"; };
 		3E82747D2496780E0049DE81 /* none.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = none.png; sourceTree = "<group>"; };
-		3E82747E2496780E0049DE81 /* line.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = line.png; sourceTree = "<group>"; };
 		3E8425C724940B8B000C1828 /* NoneAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoneAnimation.swift; sourceTree = "<group>"; };
 		3E8425CC249414C5000C1828 /* Constraints+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Constraints+Extensions.swift"; sourceTree = "<group>"; };
 		3E8425D024941A82000C1828 /* UIView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
@@ -162,9 +158,7 @@
 			isa = PBXGroup;
 			children = (
 				3E82747C2496780E0049DE81 /* connectedLine.png */,
-				3E82747E2496780E0049DE81 /* line.png */,
 				3E82747D2496780E0049DE81 /* none.png */,
-				3E82747A2496780E0049DE81 /* square.png */,
 				3E82747B2496780E0049DE81 /* triangle.png */,
 				3E827478249675080049DE81 /* rotate.gif */,
 				3E82745D249642790049DE81 /* demo.gif */,
@@ -325,14 +319,12 @@
 				C1BE85D72058FB8E00B4411F /* ExpandedTabBar.podspec in Resources */,
 				3E82746F249658020049DE81 /* none.gif in Resources */,
 				3E82746E249658020049DE81 /* zoomOut.gif in Resources */,
-				3E82747F2496780E0049DE81 /* square.png in Resources */,
 				3E827479249675080049DE81 /* rotate.gif in Resources */,
 				C1B6CABF20529CF800E25547 /* LaunchScreen.storyboard in Resources */,
 				3E8274802496780E0049DE81 /* triangle.png in Resources */,
 				C1B6CABC20529CF800E25547 /* Assets.xcassets in Resources */,
 				C1B6CABA20529CF800E25547 /* Main.storyboard in Resources */,
 				3E8274822496780E0049DE81 /* none.png in Resources */,
-				3E8274832496780E0049DE81 /* line.png in Resources */,
 				3E827473249658020049DE81 /* zoomY.gif in Resources */,
 				3E827474249658020049DE81 /* zoomX.gif in Resources */,
 				C1BE85DA2058FB8E00B4411F /* README.md in Resources */,
