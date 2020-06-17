@@ -98,7 +98,7 @@ moreSelectedIcon : UIImage? // Default nil
 ```swift
 let color: UIColor/CGColor = .pattern(light: UIColor, dark: UIColor)
 ```
-**NOTE:** If device OS version not supports dark mode, it will take light color by default.
+**NOTE:** If device OS version does not support dark mode, it will take light as default.
 - #### *Options Customization*
 **ExpandedTabBar** options conforms to **Options** protocol.
 
