@@ -8,30 +8,42 @@
 
 import UIKit
 
-class CustomViewController: ExpandedTabBarController {
+final class CustomViewController: ExpandedTabBarController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
         expandedDelegate = self
-        initOptions()
+        expandedTabBarOptions = customOptions
+        
     }
-
-    func initOptions() {
+    
+    private var customOptions: Options {
         var options = ExpandedTabBarOptions()
-        options.backgroundAlpha = 0.3
-        options.shadow = .default
-        options.containerItemsSpace = 15 // Default 8.0
-        options.spaceBetweenImageTitle = 15 // Default 8.0
-        self.options = options
+        
+        options.indicatorType = .connectedLine
+        options.animationType = .custom(customAnimation)
+        
+        options.container.roundedCorners = [.topLeft, .topRight, .bottomLeft]
+        options.container.cornerRadius = 20
+        
+        options.container.shadow = ShadowDefaultOptions()
+        options.container.tabSpace = 15
+        options.container.tab.iconTitleSpace = 15
+        
+        return options
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
+    
+    private var customAnimation: AnimationProtocol {
+        let transform = CGAffineTransform(scaleX: 0.1, y: 0.1).rotated(by: .pi)
+        return TransformAnimation(transform: transform)
     }
+    
 }
 
 extension CustomViewController: ExpandedTabBarControllerDelegate {
-    func expandedTabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController, withItem tabBarItem: UITabBarItem?) {
+    func expandedTabBarController(_ tabBarController: UITabBarController,
+                                  didSelect viewController: UIViewController,
+                                  withItem tabBarItem: UITabBarItem?) {
         // Do some logic here
     }
 }
