@@ -1,4 +1,4 @@
-# ExpandedTabBar v3.0.0
+# ExpandedTabBar v3.0.1
 ![Platform](https://img.shields.io/badge/platform-iOS-black.svg) ![Badge w/ Version](https://img.shields.io/cocoapods/v/ExpandedTabBar.svg)  ![Platform](https://img.shields.io/badge/Swift_Package_Manager-compatible-green.svg) 
 
 
