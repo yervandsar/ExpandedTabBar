@@ -50,7 +50,7 @@ open class ExpandedTabBarController: UITabBarController {
     internal var innerContainer = UIView()
     internal var indicatorView = UIView()
     
-    internal var parentContainerView: ContainerView!
+    internal var parentContainerView: ContainerView?
 
     // MARK: Constraints
     internal var indicatorRightConstraint: NSLayoutConstraint?
@@ -90,8 +90,8 @@ open class ExpandedTabBarController: UITabBarController {
         bgViewBottomConstraint?.constant = -1 * offset
 
         let maxSize = ExpandedTabBarViews.containerMaxSize
-        let containerWidth = min(maxSize.width - 40, parentContainerView.stackView.frame.size.width)
-        let containerHeight = min(maxSize.height - 40, parentContainerView.stackView.frame.size.height)
+        let containerWidth = min(maxSize.width - 40, parentContainerView?.stackView.frame.size.width ?? 0)
+        let containerHeight = min(maxSize.height - 40, parentContainerView?.stackView.frame.size.height ?? 0)
         
         parentViewWidthConstraint?.constant = max(200, containerWidth)
         parentViewHeightConstraint?.constant = containerHeight
@@ -135,36 +135,38 @@ open class ExpandedTabBarController: UITabBarController {
 // MARK: - Animartion Handling
 internal extension ExpandedTabBarController {
     func showMoreContainer() {
+        guard let parent = self.parentContainerView else { return }
         
-        self.options.animationType.animation
-            .willShow(container: self.parentContainerView, background: self.backgroundView)
+        self.options.animationType.animation.willShow(container: parent, background: self.backgroundView)
         
         let showAnimation = {
             self.backgroundView.alpha = 1
-            self.options.animationType.animation.show(container: self.parentContainerView, on: self.backgroundView)
+            self.options.animationType.animation.show(container: parent, on: self.backgroundView)
             self.backgroundView.layoutIfNeeded()
         }
         
-        UIView.animate(withDuration: options.animationType.animation.duration, animations: showAnimation) { _ in
-            self.options.animationType.animation
-                .didShow(container: self.parentContainerView, background: self.backgroundView)
+        UIView.animate(withDuration: options.animationType.animation.duration, animations: showAnimation) {
+            [weak self] _ in
+            guard let self = self else { return }
+            self.options.animationType.animation.didShow(container: parent, background: self.backgroundView)
         }
     }
 
     func hideMoreContainer() {
+        guard let parent = self.parentContainerView else { return }
         
-        self.options.animationType.animation
-            .willHide(container: self.parentContainerView, background: self.backgroundView)
+        self.options.animationType.animation.willHide(container: parent, background: self.backgroundView)
         
         let hideAnimation = {
-            self.options.animationType.animation.hide(container: self.parentContainerView, from: self.backgroundView)
+            self.options.animationType.animation.hide(container: parent, from: self.backgroundView)
             self.backgroundView.alpha = 0
             self.backgroundView.layoutIfNeeded()
         }
         
-        UIView.animate(withDuration: options.animationType.animation.duration, animations: hideAnimation) { _ in
-            self.options.animationType.animation
-                .didHide(container: self.parentContainerView, background: self.backgroundView)
+        UIView.animate(withDuration: options.animationType.animation.duration, animations: hideAnimation) {
+            [weak self] _ in
+            guard let self = self else { return }
+            self.options.animationType.animation.didHide(container: parent, background: self.backgroundView)
         }
     }
 }

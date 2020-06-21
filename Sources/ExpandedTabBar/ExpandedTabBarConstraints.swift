@@ -85,7 +85,7 @@ internal extension ExpandedTabBarController {
     /// Adding container view to background
     func addContainerView(with items: [UIStackView]) {
 
-        parentContainerView = ContainerView.create(for: tabBar)
+        let parentContainerView = ContainerView.create(for: tabBar)
         parentContainerView.roundCorners(corners: options.container.roundedCorners,
                                          radius: options.container.cornerRadius)
         parentContainerView.setOptions(options.container)
@@ -114,6 +114,8 @@ internal extension ExpandedTabBarController {
 
         parentViewWidthConstraint = widthConstraint
         parentViewHeightConstraint = heightConstraint
+
+        self.parentContainerView = parentContainerView
     }
     
     /// Content indicator right margin.

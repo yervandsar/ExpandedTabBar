@@ -25,6 +25,9 @@ extension ExpandedTabBarController: UITabBarControllerDelegate {
     public func tabBarController(_ tabBarController: UITabBarController,
                                  didSelect viewController: UIViewController) {
         deselectMore()
+        expandedDelegate?.expandedTabBarController(self,
+                                                   didSelect: viewController,
+                                                   withItem: viewController.tabBarItem)
     }
 }
 
@@ -43,7 +46,9 @@ internal extension ExpandedTabBarController {
         viewControllers?[index] = selectedViewController
         self.selectedIndex = index
         
-        expandedDelegate?.expandedTabBarController(self, didSelect: selectedViewController, withItem: tabBarItem)
+        expandedDelegate?.expandedTabBarController(self,
+                                                   didSelect: selectedViewController,
+                                                   withItem: tabBarItem)
     }
 
     private func deselectMore() {
