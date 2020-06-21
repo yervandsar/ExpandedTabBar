@@ -54,7 +54,7 @@ The  **Swift Package Manager** is a tool for automating the distribution of Swif
 Once you have your Swift package set up, adding **ExpandedTabBar** as a dependency is as easy as adding it to the  `dependencies`  value of your  `Package.swift`.
 ```swift
 dependencies: [
-    .package(url: "https://github.com/yervandsar/ExpandedTabBar", from: "3.0.0")
+    .package(url: "https://github.com/yervandsar/ExpandedTabBar", from: "3.0.1")
 ]
 ```
  Or you can checkout [Adding Package Dependencies to Your App](https://developer.apple.com/documentation/xcode/adding_package_dependencies_to_your_app) *by **Apple***
