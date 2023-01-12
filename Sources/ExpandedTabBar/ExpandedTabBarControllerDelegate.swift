@@ -31,11 +31,14 @@ extension ExpandedTabBarController: UITabBarControllerDelegate {
     }
 }
 
-internal extension ExpandedTabBarController {
+public extension ExpandedTabBarController {
 
     @objc func itemTapped(_ sender: UITapGestureRecognizer) {
         guard let selectedViewController = moreViewControllers.selectedViewController(from: sender) else { return }
-        
+        changeViewController(selectedViewController)
+    }
+    
+    @objc func changeViewController(_ selectedViewController: UIViewController) {
         hideMoreContainer()
 
         guard let index = viewControllers.initialMoreIndex ?? viewControllers.selectedMoreIndex else { return }
