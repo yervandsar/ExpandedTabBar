@@ -24,7 +24,7 @@ let kMoreStackAtIndex = "_UIExpandedTabBarMoreStackAt"
 open class ExpandedTabBarController: UITabBarController {
 
     // MARK: - ViewControllers
-    private(set) var moreViewControllers: [UIViewController]?
+    public(set) var moreViewControllers: [UIViewController]?
 
     // MARK: - Public Variables
     public weak var expandedDelegate: ExpandedTabBarControllerDelegate?
